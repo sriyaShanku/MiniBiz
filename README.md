@@ -6,12 +6,12 @@ and customer engagement.
 
 ## Features
 - Product listing and browsing
-- User authentication (login & signup)
+- User authentication (login & register)
 - Cart management
 - Booking system
 - Direct buyer-seller communication
 - Responsive design with user-friendly UI
-- Accessibility support for diverse users
+- Accessibility support for diverse users (customer and seller)
 
 ## Tech Stack
 - **Frontend:** HTML, CSS, JavaScript
