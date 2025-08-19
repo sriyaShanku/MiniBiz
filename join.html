@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Join as a Seller</title>
+    <meta name="description" content="Join the MiniBiz platform as a seller to showcase your products or services to local customers. Sign up today!">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                 <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html">Explore</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html" class="active" aria-current="page">Join as Seller</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <div class="card login-register-container"> <!-- Reusing style for layout -->
+                <h1 class="text-center">Become a MiniBiz Seller</h1>
+                <p class="text-center text-muted">Reach local customers, grow your small business, and be part of our community marketplace. Fill out the form below to apply!</p>
+                <hr style="margin: 25px 0; border-color: var(--border-color);">
+
+                <!-- NOTE: This form needs backend processing -->
+                <form id="join-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="business-name">Business Name / Your Name (as you want it displayed) *</label>
+                        <input type="text" id="business-name" name="business_name" required placeholder="e.g., Annie's Custom Cakes or Alex the Handyman">
+                    </div>
+                     <div class="form-group">
+                        <label for="contact-person">Contact Person Name *</label>
+                        <input type="text" id="contact-person" name="contact_person" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional, for contact)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., 555-123-4567">
+                    </div>
+                     <div class="form-group">
+                        <label for="business-category">Primary Business Category *</label>
+                        <select id="business-category" name="business_category" required>
+                            <option value="" disabled selected>-- Select a Category --</option>
+                            <option value="beauty">Beauty & Wellness</option>
+                            <option value="fashion">Fashion & Tailoring</option>
+                            <option value="food">Food & Baking</option>
+                            <option value="arts">Arts & Crafts</option>
+                            <option value="home">Home & Repair</option>
+                             <option value="education">Education & Tutoring</option>
+                              <option value="pets">Pet Services</option>
+                              <option/other">Other Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Brief Description of Your Business/Services *</label>
+                        <textarea id="description" name="description" rows="4" required placeholder="Tell customers what makes your offering special! (Max 300 characters recommended for profile preview)"></textarea>
+                    </div>
+                     <div class="form-group">
+                        <label for="location-area">General Service Area / Location *</label>
+                        <input type="text" id="location-area" name="location_area" placeholder="e.g., Springfield Downtown, North County, Ship anywhere" required>
+                        <small class="text-muted">Helps customers find local sellers. Be specific but avoid exact home address unless it's a public storefront.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="website-social">Website or Social Media Link (Optional)</label>
+                        <input type="url" id="website-social" name="website_social" placeholder="https://yourwebsite.com or https://instagram.com/yourbiz">
+                    </div>
+
+                     <div class="form-check">
+                         <input type="checkbox" id="terms-agree" name="terms_agree" required>
+                         <label for="terms-agree">I agree to the MiniBiz <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Seller Guidelines</a>.*</label> <!-- Link to actual terms -->
+                     </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Submit Application</button>
+
+                    <p style="font-size: 0.9rem; text-align: center; margin-top: 20px;" class="text-muted">We typically review applications within 2-3 business days. We'll contact you via email.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> | <!-- Add link later -->
+                <a href="#">Privacy Policy</a> <!-- Add link later -->
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

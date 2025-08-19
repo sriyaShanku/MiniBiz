@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Seller Dashboard</title>
+    <meta name="description" content="Manage your MiniBiz seller account, listings, orders, and messages through your personal dashboard.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Optional: Add Dashboard specific CSS or Charting libraries here -->
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz <span style="font-size: 0.8em; color: var(--text-muted); font-weight: 400;">Seller</span></a>
+            <nav>
+                 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                 <ul class="nav-links">
+                    <!-- Simplified Nav for logged-in user -->
+                    <li><a href="dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+                    <li><a href="product-listings.html">Explore Site</a></li>
+                    <li><a href="seller-profile.html#myprofile">My Public Profile</a></li> <!-- Link to view own profile - Needs unique ID/URL from backend -->
+                    <li><a href="#logout">Logout</a></li> <!-- Needs JS/Backend for actual logout -->
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <h1>Seller Dashboard</h1>
+            <p class="lead" style="margin-bottom: 30px;">Welcome back, <span id="seller-name">[Seller Name Placeholder]</span>!</p> <!-- Personalize with backend data -->
+
+            <div class="dashboard-layout">
+                <!-- Dashboard Sidebar Navigation -->
+                <aside class="dashboard-nav">
+                    <div class="card">
+                        <nav>
+                            <ul>
+                                <li><a href="#overview" class="active">Overview</a></li>
+                                <li><a href="#listings">My Listings</a></li>
+                                <li><a href="#orders">Orders & Bookings</a></li>
+                                <li><a href="#messages">Messages <span class="badge" style="background:var(--accent-color); color: #fff; padding: 2px 6px; font-size: 0.7rem; border-radius: 4px; margin-left: 5px;">1</span></a></li> <!-- Example Badge -->
+                                <li><a href="#profile">Profile Settings</a></li>
+                                <li><a href="#analytics">Analytics</a></li>
+                                <li><a href="#help">Help & Support</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Dashboard Content Area -->
+                <div class="dashboard-content">
+                    <!-- Overview Section -->
+                    <section id="overview" class="card dashboard-section">
+                        <h2>Overview</h2>
+                        <p class="text-muted">Your recent activity at a glance.</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 25px;">
+                            <div class="stat-card">
+                                <strong>5</strong><small>Active Listings</small>
+                            </div>
+                            <div class="stat-card">
+                                <strong>2</strong><small>New Orders</small>
+                            </div>
+                            <div class="stat-card">
+                                <strong>1</strong><small>Unread Messages</small>
+                            </div>
+                             <div class="stat-card">
+                                <strong>1.2K</strong><small>Profile Views (30d)</small>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <a href="#listings" class="btn btn-primary">Manage Listings</a>
+                            <a href="#messages" class="btn btn-secondary" style="margin-left: 10px;">Check Messages</a>
+                        </div>
+                    </section>
+
+                    <!-- My Listings Section -->
+                    <section id="listings" class="card dashboard-section">
+                        <h2>My Listings</h2>
+                         <p class="text-muted">Manage your products and services.</p>
+                        <a href="#" class="btn btn-primary" style="margin-bottom: 25px; display: inline-block;">+ Add New Listing</a>
+                        <!-- Placeholder for listings table/grid -->
+                        <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; min-height: 150px;">
+                            <p style="margin-bottom: 15px;"><strong>Your Listings:</strong></p>
+                            <!-- Replace with dynamic table/list -->
+                            <ul style="list-style-type: disc; padding-left: 20px;">
+                                <li style="margin-bottom: 10px; display:flex; justify-content: space-between; align-items: center;">
+                                    <span>Custom Celebration Cake (Active)</span>
+                                    <span><a href="#" class="text-muted" style="font-size:0.9em; margin-right: 10px;">Edit</a> <a href="#" class="text-muted" style="font-size:0.9em; color: #e74c3c;">Delete</a></span>
+                                </li>
+                                 <li style="margin-bottom: 10px; display:flex; justify-content: space-between; align-items: center;">
+                                    <span>Handmade Ceramic Mug (Active)</span>
+                                     <span><a href="#" class="text-muted" style="font-size:0.9em; margin-right: 10px;">Edit</a> <a href="#" class="text-muted" style="font-size:0.9em; color: #e74c3c;">Delete</a></span>
+                                </li>
+                                 <li style="margin-bottom: 10px; display:flex; justify-content: space-between; align-items: center;">
+                                    <span>Cozy Hand-Knitted Scarf (Paused)</span>
+                                     <span><a href="#" class="text-muted" style="font-size:0.9em; margin-right: 10px;">Edit</a> <a href="#" class="text-muted" style="font-size:0.9em; color: #e74c3c;">Delete</a></span>
+                                </li>
+                            </ul>
+                             <p class="text-center text-muted" style="margin-top: 20px;">(Placeholder Content)</p>
+                        </div>
+                    </section>
+
+                    <!-- Orders/Bookings Section -->
+                    <section id="orders" class="card dashboard-section">
+                        <h2>Orders & Bookings</h2>
+                        <p class="text-muted">View and manage customer orders or booking requests.</p>
+                         <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; min-height: 150px; text-align: center; color: var(--text-muted);">
+                            <p style="font-size: 1.2rem; margin-bottom: 15px;">🛒</p>
+                            Placeholder: New customer orders/bookings will appear here. (Order ID, Customer, Date, Status, Actions)
+                        </div>
+                    </section>
+
+                     <!-- Messages Section -->
+                    <section id="messages" class="card dashboard-section">
+                        <h2>Messages</h2>
+                        <p class="text-muted">Communicate with potential customers and respond to inquiries.</p>
+                         <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; min-height: 150px; text-align: center; color: var(--text-muted);">
+                             <p style="font-size: 1.2rem; margin-bottom: 15px;">💬</p>
+                             Placeholder: Customer inquiries and messages will appear here. (Sender, Subject, Date, Read/Unread Status)
+                             <div style="margin-top: 15px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.3); padding: 10px; border-radius: 5px;">
+                                 <strong style="color: var(--accent-darker);">1 Unread Message:</strong> Inquiry about "Custom Cake" from Sarah K.
+                             </div>
+                        </div>
+                    </section>
+
+                    <!-- Profile Settings Section -->
+                     <section id="profile" class="card dashboard-section">
+                        <h2>Profile Settings</h2>
+                        <p class="text-muted">Update your business information, contact details, profile picture, and public description.</p>
+                        <!-- Placeholder for profile form -->
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="dash-biz-name">Display Name</label>
+                                <input type="text" id="dash-biz-name" name="business_name" value="[Seller Name Placeholder]">
+                            </div>
+                             <div class="form-group">
+                                <label for="dash-profile-pic">Profile Picture</label>
+                                <input type="file" id="dash-profile-pic" name="profile_picture" accept="image/*">
+                                <small class="text-muted">Upload a new photo (JPG, PNG recommended, max 2MB).</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="dash-description">Public Description</label>
+                                <textarea id="dash-description" name="description" rows="5">[Placeholder for current description]</textarea>
+                            </div>
+                             <div class="form-group">
+                                <label for="dash-email">Contact Email</label>
+                                <input type="email" id="dash-email" name="email" value="[seller@example.com]">
+                            </div>
+                             <button type="submit" class="btn btn-primary">Save Changes</button>
+                              <p class="text-center text-muted" style="margin-top: 20px;">(Form fields are placeholders)</p>
+                        </form>
+                    </section>
+
+                     <!-- Analytics Section -->
+                     <section id="analytics" class="card dashboard-section">
+                        <h2>Analytics</h2>
+                        <p class="text-muted">Track your listing views, inquiries, and performance over time.</p>
+                         <!-- Placeholder for charts/stats -->
+                         <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; min-height: 200px; text-align: center; color: var(--text-muted); display: flex; align-items: center; justify-content: center;">
+                             <p style="font-size: 1.2rem; margin-right: 10px;">📊</p> Placeholder: Charts and statistics about listing performance will go here (e.g., views, clicks, messages over time). Requires JS charting library integration (e.g., Chart.js) and backend data.
+                        </div>
+                    </section>
+
+                     <!-- Help Section -->
+                     <section id="help" class="card dashboard-section">
+                        <h2>Help & Support</h2>
+                        <p class="text-muted">Find answers to common questions or get in touch with support.</p>
+                        <ul style="list-style: disc; padding-left: 20px;">
+                            <li><a href="faq.html" target="_blank">View Seller FAQ</a></li>
+                            <li><a href="contact.html?subject=Seller Support">Contact Support</a></li>
+                            <li>Read our <a href="#">Seller Guidelines</a></li>
+                        </ul>
+                    </section>
+
+                </div> <!-- End Dashboard Content -->
+            </div> <!-- End Dashboard Layout -->
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="#">Seller Agreement</a> | <!-- Add link later -->
+                <a href="faq.html">Seller FAQ</a> |
+                <a href="contact.html">Contact Support</a>
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+    <!-- Add specific dashboard JS if needed -->
+
+</body>
+</html>

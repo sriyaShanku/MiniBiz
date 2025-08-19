@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Login or Register</title>
+     <meta name="description" content="Login to your MiniBiz account or register as a new customer or seller.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                 <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html">Explore</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html" class="active" aria-current="page">Join as Seller</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding-sm"> <!-- Less padding for login -->
+        <div class="container">
+            <div class="card login-register-container">
+
+                <!-- Login Form (Default View) -->
+                <div id="login-form-container">
+                    <h1 class="text-center">Welcome Back!</h1>
+                    <p class="text-center text-muted">Login to access your account.</p>
+                    <!-- NOTE: Needs backend for authentication -->
+                    <form id="login-form" action="#" method="POST" style="margin-top: 30px;">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+                        </div>
+                         <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                            <div class="form-check" style="margin-bottom: 0;">
+                                <input type="checkbox" id="remember-me" name="remember">
+                                <label for="remember-me"> Remember Me</label>
+                            </div>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Login</button>
+                    </form>
+                    <p class="form-switch-links text-muted">
+                        Don't have an account? <a href="#register" id="show-register">Register Now</a>
+                    </p>
+                </div>
+
+                 <!-- Register Form (Initially Hidden) -->
+                 <div id="register-form-container" style="display: none;">
+                    <h1 class="text-center">Create Your Account</h1>
+                    <p class="text-center text-muted">Join the MiniBiz community!</p>
+                    <!-- NOTE: Needs backend for account creation -->
+                     <form id="register-form" action="#" method="POST" style="margin-top: 30px;">
+                         <div class="form-group">
+                            <label for="register-name">Full Name *</label>
+                            <input type="text" id="register-name" name="name" required placeholder="Your Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email Address *</label>
+                            <input type="email" id="register-email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Create Password *</label>
+                            <input type="password" id="register-password" name="password" required placeholder="Minimum 8 characters">
+                             <!-- Add password strength meter JS if needed -->
+                        </div>
+                         <div class="form-group">
+                            <label for="register-confirm-password">Confirm Password *</label>
+                            <input type="password" id="register-confirm-password" name="confirm_password" required placeholder="Re-enter your password">
+                        </div>
+                         <div class="form-group">
+                            <label class="group-title">Account Type *</label>
+                            <div class="form-check"><input type="radio" id="type-customer" name="account_type" value="customer" checked> <label for="type-customer"> I'm a Customer (Looking for services/products)</label></div>
+                            <div class="form-check"><input type="radio" id="type-seller" name="account_type" value="seller"> <label for="type-seller"> I'm a Seller (Want to list services/products)</label></div>
+                         </div>
+                         <div class="form-check">
+                             <input type="checkbox" id="register-terms" name="terms" required>
+                             <label for="register-terms">I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.*</label>
+                         </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; margin-top: 15px;">Register</button>
+                    </form>
+                     <p class="form-switch-links text-muted">
+                        Already have an account? <a href="#login" id="show-login">Login Here</a>
+                    </p>
+                 </div>
+
+             </div>
+        </div>
+    </main>
+
+    <footer class="main-footer" style="margin-top: 40px;"> <!-- Reduced margin -->
+        <div class="container">
+            <!-- Minimal Footer for Login Page -->
+             <div class="footer-links">
+                <a href="#">Terms of Service</a> |
+                <a href="#">Privacy Policy</a> |
+                 <a href="contact.html">Help</a>
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+    <!-- Login/Register toggle script is included in the main script.js -->
+</body>
+</html>

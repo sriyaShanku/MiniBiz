@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update title dynamically -->
+    <title>MiniBiz | Seller Profile - Annie's Bakery</title>
+    <meta name="description" content="View the profile, products, and services offered by Annie's Bakery on MiniBiz. Specializing in custom cakes and desserts.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+                 <ul class="nav-links">
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="services.html">Services</a></li>
+                     <li><a href="product-listings.html" class="active" aria-current="page">Explore</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="join.html">Join as Seller</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                     <li><a href="login.html">Login/Register</a></li>
+                     <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+             <p style="margin-bottom: 25px;"><a href="product-listings.html">« Back to Explore</a></p>
+
+            <div class="profile-container card">
+                <!-- Profile Header -->
+                <section class="profile-header" id="seller1"> <!-- Added ID for linking -->
+                    <div class="profile-avatar">
+                        <!-- Seller Avatar Placeholder -->
+                        <img src="/images/anniebakery.png" alt="Annie Baker, owner of Annie's Bakery">
+                    </div>
+                    <div class="profile-info">
+                        <!-- Seller Name -->
+                        <h1>Annie's Bakery</h1>
+                         <!-- Tagline/Short Desc -->
+                        <p class="tagline">Creating delicious memories, one cake at a time.</p>
+                        <!-- Contact Info -->
+                        <div class="profile-contact">
+                             <!-- Replace with Font Awesome icons if preferred -->
+                             <span>📍 Springfield Downtown (Local Pickup/Delivery)</span>
+                             <span>📧 <a href="#contact-seller-modal" onclick="openContactModal('AnnieBaker')">Contact via MiniBiz</a></span> <!-- Trigger Modal or Link -->
+                             <!-- Example Verified Badge -->
+                             <span style="color: var(--secondary-darker);">✅ Verified Seller</span>
+                         </div>
+                         <a href="#contact-seller-modal" onclick="openContactModal('AnnieBaker')" class="btn btn-primary" style="margin-top: 20px;">Contact Seller</a>
+                    </div>
+                </section>
+
+                <!-- About the seller Section -->
+                <section class="profile-about section-padding-sm">
+                    <h2>About Annie's Bakery</h2>
+                    <p>Hello! I'm Annie, the passionate baker behind Annie's Bakery. For over 10 years, I've poured my heart into creating beautiful and delicious cakes, cupcakes, cookies, and more from my registered home kitchen right here in Springfield. I use high-quality ingredients and love working with clients to design the perfect treats for their special moments.</p>
+                     <p>Whether it's a grand wedding cake or a small batch of birthday cupcakes, I'm here to make your celebration sweeter!</p>
+                </section>
+
+                 <!-- Seller's Listings -->
+                 <section class="profile-listings section-padding-sm">
+                    <h2>Offerings from Annie's Bakery</h2>
+                     <div class="product-grid" style="margin-top: 30px;">
+                         <!-- Product 1: Cake -->
+                         <article class="product-card card">
+                             <a href="product-detail.html#prod1" class="product-image-link">
+                                 <img src="/images/weddingcake.png" alt="Elegant multi-tiered wedding cake">
+                             </a>
+                             <div class="product-card-content">
+                                 <h3><a href="product-detail.html#prod1">Wedding Cake</a></h3>
+                                 <p class="description">Beautifully designed cake for weddings and parties.</p>
+                                 <div class="price">Starting from ₹8700</div>
+                                 <a href="product-detail.html#prod1" class="btn btn-secondary">View Details</a>
+                             </div>
+                         </article>
+                         <!-- Product 2: Cupcakes -->
+                          <article class="product-card card">
+                             <a href="#" class="product-image-link"> <!-- Link to cupcake detail page -->
+                                 <img src="/images/cupcake.png" alt="Colorful assortment of gourmet cupcakes">
+                             </a>
+                             <div class="product-card-content">
+                                 <h3><a href="#">Gourmet Cupcakes</a></h3>
+                                 <p class="description">Variety packs, assorted flavours and custom orders available.</p>
+                                 <div class="price">₹160 each</div>
+                                 <a href="#" class="btn btn-secondary">View Details</a>
+                             </div>
+                         </article>
+                          <!-- Product 3: Cookies -->
+                         <article class="product-card card">
+                            <a href="#" class="product-image-link"> <!-- Link to cookie detail page -->
+                                <img src="/images/cookies.png" alt="Beautifully decorated sugar cookies">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="#">Seasonal Decorated Cookies</a></h3>
+                                <p class="description">Custom sugar cookies for holidays and events.</p>
+                                <div class="price">₹2200</div>
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                     </div>
+                      <p class="text-center text-muted" style="margin-top: 20px; font-size: 0.9rem;">(Showing top listings)</p>
+                 </section>
+
+                 <!-- Reviews -->
+                 <section class="profile-reviews section-padding-sm">
+                     <h2>Customer Reviews for Annie's Bakery</h2>
+                       <div style="border-top: 1px solid var(--border-color); padding-top: 25px;">
+                           <div class="testimonial-card" style="border-left-color: var(--secondary-color); margin-bottom: 20px;">
+                                <blockquote>"Absolutely stunning cake for our wedding! Annie was a pleasure to work with and captured our vision perfectly. Tasted incredible too!"</blockquote>
+                                <cite>- Michael & Laura P. ⭐⭐⭐⭐⭐</cite>
+                           </div>
+                            <div class="testimonial-card" style="border-left-color: var(--secondary-color); margin-bottom: 20px;">
+                               <blockquote>"Ordered birthday cupcakes - they were the hit of the party! So fresh and delicious."</blockquote>
+                               <cite>- Sarah K. ⭐⭐⭐⭐⭐</cite>
+                           </div>
+                           <div class="testimonial-card" style="border-left-color: var(--secondary-color); margin-bottom: 20px;">
+                               <blockquote>"Fantastic cookies for our baby shower favors. Annie matched the theme perfectly. Will order again!"</blockquote>
+                               <cite>- Emily R. ⭐⭐⭐⭐⭐</cite>
+                           </div>
+                            <p class="text-center text-muted" style="margin-top: 20px; font-size: 0.9rem;">(Showing recent reviews)</p>
+                       </div>
+                 </section>
+
+            </div><!-- End Profile Container -->
+        </div>
+    </main>
+
+    <!-- Simple Placeholder Modal Structure (Hidden by default) -->
+    <div id="contact-seller-modal" style="display:none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);">
+         <div class="card" style="background-color: var(--card-bg); margin: 10% auto; padding: 30px; border: 1px solid var(--border-color); width: 80%; max-width: 500px; position:relative; border-radius: var(--border-radius);">
+            <button onclick="closeContactModal()" style="position:absolute; top:15px; right:20px; font-size: 1.5rem; background:none; border:none; cursor:pointer; color: var(--text-muted);">×</button>
+            <h3>Contact <span id="modal-seller-name">Seller</span></h3>
+             <p class="text-muted">Send your inquiry directly via MiniBiz.</p>
+             <hr style="margin: 15px 0; border-color: var(--border-color);">
+            <form id="modal-contact-form" action="#">
+                <input type="hidden" id="modal-seller-id" name="seller_id">
+                 <div class="form-group">
+                     <label for="modal-message">Your Message *</label>
+                     <textarea id="modal-message" name="message" rows="5" required placeholder="Ask about availability, customization, etc..."></textarea>
+                 </div>
+                 <div class="form-group">
+                     <label for="modal-email">Your Email (for reply) *</label>
+                     <input type="email" id="modal-email" name="email" required placeholder="Your email address">
+                 </div>
+                 <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+             </form>
+             <p id="modal-form-status" style="text-align: center; margin-top: 15px; color: green; display: none;">Message sent!</p>
+         </div>
+     </div>
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> |
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p style="margin-top: 15px;">© <span id="current-year">2025</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- Simple JS for Placeholder Modal -->
+    <script>
+        const contactModal = document.getElementById('contact-seller-modal');
+        const modalSellerName = document.getElementById('modal-seller-name');
+        const modalSellerId = document.getElementById('modal-seller-id');
+        const modalFormStatus = document.getElementById('modal-form-status');
+        const modalForm = document.getElementById('modal-contact-form');
+
+        function openContactModal(sellerId, sellerName = 'Seller') {
+             if(contactModal) {
+                if (modalSellerName) modalSellerName.textContent = sellerName; // Update seller name
+                if (modalSellerId) modalSellerId.value = sellerId;     // Set hidden seller ID for form submission
+                modalFormStatus.style.display = 'none'; // Hide status message
+                contactModal.style.display = 'block';
+                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+        function closeContactModal() {
+            if(contactModal) {
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+         // Close modal if clicking outside the content
+         if(contactModal) {
+             contactModal.addEventListener('click', function(event) {
+                if (event.target === contactModal) { // Check if the click is on the backdrop itself
+                    closeContactModal();
+                }
+            });
+            // Placeholder form submission for demo
+            modalForm.addEventListener('submit', function(e){
+                e.preventDefault();
+                modalFormStatus.style.display = 'block';
+                 modalFormStatus.textContent = 'Message sent successfully!';
+                modalForm.reset();
+                 setTimeout(closeContactModal, 2000);
+            })
+        }
+        // Example: Trigger opening the modal - You'd likely replace seller1/Annie's Bakery dynamically
+        // document.querySelectorAll('a[href="#contact-seller-modal"]').forEach(link => {
+        //    link.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         // Ideally get seller name/ID from data attributes on the link/button
+        //         openContactModal('seller1', 'Annie\'s Bakery');
+        //    })
+        // });
+    </script>
+
+    
+</body>
+</html>

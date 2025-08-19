@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update title dynamically with backend -->
+    <title>MiniBiz | Product Detail</title>
+    <meta name="description" content="View details for Custom Celebration Cake by Annie's Bakery on MiniBiz. Custom designs, local pickup available.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+     <!-- Optional: Add lightbox/slider CSS/JS for images -->
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                 <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html" class="active">Explore</a></li> <!-- Keep Explore active -->
+                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html">Join as Seller</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+             <!-- Back link -->
+             <p style="margin-bottom: 25px;"><a href="product-listings.html">&laquo; Back to Listings</a></p>
+
+            <!-- Product Detail Layout -->
+            <div class="product-detail-layout">
+                <!-- Product Images -->
+                <section class="product-images">
+                    <!-- Main Image Placeholder -->
+                     <img src="/images/birthday.png" alt="Main product image placeholder" id="main-product-image">
+                     <!-- Thumbnail Placeholders (Optional) -->
+                     <div class="active-thumb" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; margin-top: 15px;">
+                         <img src="/images/birthday1.png" alt="Thumbnail 1" style="cursor: pointer; border: 2px solid var(--border-color); border-radius: 5px;" onclick="changeMainImage(this.src)"> 
+                         <img src="/images/birthday2.png" alt="Thumbnail 2" style="cursor: pointer; border: 2px solid var(--border-color); border-radius: 5px;" onclick="changeMainImage(this.src)">
+                        <img src="/images/birthday3.png" alt="Thumbnail 3" style="cursor: pointer; border: 2px solid var(--border-color); border-radius: 5px;" onclick="changeMainImage(this.src)">
+                    </div>
+                </section>
+
+                <!-- Product Information -->
+                <section class="product-info card"> <!-- Wrap info in a card -->
+                     <!-- Product Title - Needs dynamic update -->
+                    <h1>Custom Celebration Cake</h1>
+                     <!-- Seller Info - Needs dynamic update -->
+                     <p class="seller-link text-muted" style="margin-bottom: 20px;">
+                        Sold by: <a href="seller-profile.html#seller1"><strong>Annie's Bakery</strong></a>
+                     </p>
+                    <!-- Price - Needs dynamic update -->
+                    <div class="price">₹645</div>
+                    <!-- Short Description / Key Features -->
+                     <p>Beautifully crafted custom cakes perfect for birthdays, weddings, anniversaries, and any special occasion. Made with high-quality ingredients.</p>
+                     <h4>Key Features:</h4>
+                     <ul style="list-style: disc; padding-left: 25px; margin-bottom: 25px;">
+                         <li>Choice of flavors and fillings</li>
+                         <li>Customizable design and theme</li>
+                         <li>Serves 10-50+ people (depending on size)</li>
+                         <li>Local pickup or delivery available (check options)</li>
+                     </ul>
+
+                     <!-- Actions -->
+                     <div class="product-actions">
+                        <button class="btn btn-cart"
+                            style="margin-top: 20px;"
+                             data-product-id="prod1"
+                             data-product-name="Custom Celebration Cake"
+                             data-product-price="645"
+                             data-product-image="/images/birthday1.png">
+                             Add to Cart
+                         </button>
+                         <!-- Inquiry might still be useful for custom items -->
+                         <button class="btn btn-secondary btn-book"style="margin-top: 20px;" data-service-name="Custom Celebration Cake Inquiry">
+                             Inquire First
+                         </button>
+                         <a href="#contact-seller-modal" onclick="openContactModal('AnnieBaker')" class="btn btn-primary" style="margin-top: 20px;">Contact Seller</a>
+                     </div>
+                </section>
+            </div> <!-- End Product Detail Layout -->
+
+             <!-- Full Description Section -->
+            <section class="product-description card section-padding-sm">
+                 <h2>More About This Cake</h2><hr style="margin-bottom: 20px;">
+                 <!-- Needs dynamic update -->
+                <p>Make your next celebration truly unforgettable with a custom cake from Annie's Bakery! We specialize in creating unique, delicious, and visually stunning cakes tailored to your event's theme and your personal taste.</p>
+                <p>Whether you need a multi-tiered wedding cake, a fun character cake for a child's birthday, or an elegant dessert for a corporate event, we work closely with you to bring your vision to life. Choose from a wide variety of classic and gourmet flavors, fillings, and frostings.</p>
+                 <h4>Ordering Process:</h4>
+                 <ol style="list-style: decimal; padding-left: 25px; margin-bottom: 15px;">
+                    <li>Contact us via the button above with your event date, number of guests, and design ideas.</li>
+                    <li>We'll discuss options and provide a quote.</li>
+                    <li>A deposit is required to secure your date.</li>
+                    <li>Final details confirmed one week before the event.</li>
+                 </ol>
+                 <p class="text-muted">Please order at least 2 weeks in advance for custom designs. Check availability for rush orders.</p>
+            </section>
+
+             <!-- Related Products Section (Optional) -->
+            <section class="related-products section-padding-sm">
+                <h2 class="text-center">More from Annie's Bakery</h2>
+                 <div class="product-grid" style="margin-top: 30px;">
+                     <!-- Placeholder related product cards -->
+                     <article class="product-card card"data-id="prod-cupcake"> <a href="#" class="product-image-link"> <img src="/images/cupcake.png" alt="Related 1"> </a> <div class="product-card-content"><h3><a href="#">Gourmet Cupcakes</a></h3><p class="description">Variety pack of cupcakes.</p><div class="price">₹160 each</div> <a href="#" class="btn btn-secondary">View Details</a></div></article>
+                     <article class="product-card card"data-id="prod-cookie"> <a href="#" class="product-image-link"> <img src="/images/cookiekit.png" alt="Related 2"> </a> <div class="product-card-content"><h3><a href="#">Cookie Decorating Kit</a></h3><p class="description">Perfect for holidays</p><div class="price">₹850</div> <a href="#" class="btn btn-secondary">View Details</a></div></article>
+                     <article class="product-card card"data-id="prod-macaron> <a href="#" class="product-image-link"> <img src="/images/macaroni.png" alt="Related 3"> </a> <div class="product-card-content"><h3><a href="#">French Macarons</a></h3><p class="description">Delicious chocolate macarons</p><div class="price">₹330 (pack of 2)</div> <a href="#" class="btn btn-secondary">View Details</a></div></article>
+                 </div>
+            </section>
+
+        </div>
+    </main>
+
+      <!-- Simple Placeholder Modal Structure (Hidden by default) -->
+    <div id="contact-seller-modal" style="display:none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);">
+         <div class="card" style="background-color: var(--card-bg); margin: 10% auto; padding: 30px; border: 1px solid var(--border-color); width: 80%; max-width: 500px; position:relative; border-radius: var(--border-radius);">
+            <button onclick="closeContactModal()" style="position:absolute; top:15px; right:20px; font-size: 1.5rem; background:none; border:none; cursor:pointer; color: var(--text-muted);">×</button>
+            <h3>Contact <span id="modal-seller-name">Seller</span></h3>
+             <p class="text-muted">Send your inquiry directly via MiniBiz.</p>
+             <hr style="margin: 15px 0; border-color: var(--border-color);">
+            <form id="modal-contact-form" action="#">
+                <input type="hidden" id="modal-seller-id" name="seller_id">
+                 <div class="form-group">
+                     <label for="modal-message">Your Message *</label>
+                     <textarea id="modal-message" name="message" rows="5" required placeholder="Ask about availability, customization, etc..."></textarea>
+                 </div>
+                 <div class="form-group">
+                     <label for="modal-email">Your Email (for reply) *</label>
+                     <input type="email" id="modal-email" name="email" required placeholder="Your email address">
+                 </div>
+                 <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+             </form>
+             <p id="modal-form-status" style="text-align: center; margin-top: 15px; color: green; display: none;">Message sent!</p>
+         </div>
+     </div>
+
+     <!-- Booking Inquiry Modal -->
+    <div id="booking-modal" style="display:none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);">
+        <div class="card" style="background-color: var(--card-bg); margin: 10% auto; padding: 30px; border: 1px solid var(--border-color); width: 80%; max-width: 500px; position:relative; border-radius: var(--border-radius);">
+            <button onclick="closeBookingModal()" style="position:absolute; top:15px; right:20px; font-size: 1.5rem; background:none; border:none; cursor:pointer; color: var(--text-muted);">×</button>
+            <h3>Booking Inquiry: <span id="modal-service-title-placeholder">[Service Name]</span></h3>
+            <p class="text-muted">Send inquiry for custom orders or services.</p>
+            <hr style="margin: 15px 0; border-color: var(--border-color);">
+            <form id="booking-form" action="#">
+                <input type="hidden" id="booking-service-name" name="service_name">
+                <div class="form-group">
+                     <label for="booking-date">Preferred Date *</label>
+                     <input type="date" id="booking-date" name="booking_date" required>
+                 </div>
+                <div class="form-group">
+                    <label for="booking-details">Details/Message *</label>
+                    <textarea id="booking-details" name="booking_details" rows="4" required placeholder="Number of servings? Theme? Specific questions?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="booking-name">Your Name *</label>
+                    <input type="text" id="booking-name" name="name" required>
+                </div>
+                <div class="form-group">
+                     <label for="booking-email">Your Email *</label>
+                     <input type="email" id="booking-email" name="email" required placeholder="Your email address">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+            </form>
+            <p id="booking-form-status" style="text-align: center; margin-top: 15px; color: green; display: none;">Inquiry sent!</p>
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> | <!-- Add link later -->
+                <a href="#">Privacy Policy</a> <!-- Add link later -->
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+     <script src="js/script.js"></script>
+    <!-- Simple JS for Placeholder Modal -->
+    <script>
+        const contactModal = document.getElementById('contact-seller-modal');
+        const modalSellerName = document.getElementById('modal-seller-name');
+        const modalSellerId = document.getElementById('modal-seller-id');
+        const modalFormStatus = document.getElementById('modal-form-status');
+        const modalForm = document.getElementById('modal-contact-form');
+
+        function openContactModal(sellerId, sellerName = 'Seller') {
+             if(contactModal) {
+                if (modalSellerName) modalSellerName.textContent = sellerName; // Update seller name
+                if (modalSellerId) modalSellerId.value = sellerId;     // Set hidden seller ID for form submission
+                modalFormStatus.style.display = 'none'; // Hide status message
+                contactModal.style.display = 'block';
+                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+        function closeContactModal() {
+            if(contactModal) {
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+         // Close modal if clicking outside the content
+         if(contactModal) {
+             contactModal.addEventListener('click', function(event) {
+                if (event.target === contactModal) { // Check if the click is on the backdrop itself
+                    closeContactModal();
+                }
+            });
+            // Placeholder form submission for demo
+            modalForm.addEventListener('submit', function(e){
+                e.preventDefault();
+                modalFormStatus.style.display = 'block';
+                 modalFormStatus.textContent = 'Message sent successfully!';
+                modalForm.reset();
+                 setTimeout(closeContactModal, 2000);
+            })
+        }
+        // Example: Trigger opening the modal - You'd likely replace seller1/Annie's Bakery dynamically
+        // document.querySelectorAll('a[href="#contact-seller-modal"]').forEach(link => {
+        //    link.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         // Ideally get seller name/ID from data attributes on the link/button
+        //         openContactModal('seller1', 'Annie\'s Bakery');
+        //    })
+        // });
+
+        // Booking Modal Script
+        const bookingModal = document.getElementById('booking-modal');
+        const modalServiceName = document.getElementById('modal-service-title-placeholder');
+        const hiddenServiceName = document.getElementById('booking-service-name');
+        const bookingForm = document.getElementById('booking-form');
+        const bookingFormStatus = document.getElementById('booking-form-status');
+
+        function openBookingModal(serviceName = 'Service') {
+             if (bookingModal) {
+                if (modalServiceName) modalServiceName.textContent = serviceName;
+                 if (hiddenServiceName) hiddenServiceName.value = serviceName;
+                 bookingFormStatus.style.display = 'none';
+                 bookingModal.style.display = 'block';
+                 document.body.style.overflow = 'hidden';
+            }
+        }
+
+       function closeBookingModal() {
+         if (bookingModal) {
+
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+         }
+        }
+
+     // Click outside the modal content to close
+     if (bookingModal) {
+         bookingModal.addEventListener('click', function(event) {
+             if (event.target === bookingModal) {
+                 closeBookingModal();
+            }
+        });
+
+        // Placeholder form submission
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            bookingFormStatus.style.display = 'block';
+            bookingFormStatus.textContent = 'Booking inquiry sent!';
+            bookingForm.reset();
+            setTimeout(closeBookingModal, 2000);
+        });
+     }
+
+     // Example: Trigger opening the modal (you can uncomment and customize this part as needed)
+     // document.querySelectorAll('a[href="#booking-modal"]').forEach(link => {
+     //     link.addEventListener('click', (e) => {
+     //         e.preventDefault();
+     //         openBookingModal('Custom Cake Service');
+     //     });
+     // });
+
+     /* Image thumbnail script */
+     function changeMainImage(s) {
+         const m = document.getElementById('main-product-image');
+         if (m) {
+            // Fade out effect
+            m.style.opacity = 0;
+            setTimeout(() => {
+               // Change the main image's src by replacing part of the URL
+                m.src = s.replace('/100x80?', '/600x500?'); // Adjusting image size
+                m.style.opacity = 1; // Fade in effect
+            }, 200);
+        }
+
+        // Highlight the active thumbnail
+        const t = document.querySelectorAll('.thumbnails img');
+        t.forEach(h => {
+            h.classList.remove('active-thumb'); // Remove highlight from all
+            if (h.src === s) h.classList.add('active-thumb'); // Add highlight to clicked one
+        });
+     };
+
+     // Set the first thumbnail as active on page load
+     const f = document.querySelector('.thumbnails img');
+     if (f) f.classList.add('active-thumb');
+
+    </script>
+
+  
+</body>
+</html>

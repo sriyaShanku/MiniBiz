@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Home - Your Door to Small Scale Business</title>
+    <meta name="description" content="Connect with local bakers, artists, tailors, beauticians and more small businesses in your community through MiniBiz.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Optional: Add Favicon links here -->
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    &#9776; <!-- Hamburger Icon -->
+                </button>
+                <ul class="nav-links">
+                   <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html">Explore</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html">Join as Seller</a></li>
+                    <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                    <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/images/discover.jpg');">
+            <!-- Change ^ this URL to your actual hero image -->
+            <div class="hero-content">
+                <h1>Discover Amazing Local Talent</h1>
+                <p class="lead">MiniBiz connects you with passionate local entrepreneurs offering unique products and services right in your community.</p>
+                <a href="product-listings.html" class="btn btn-accent">Explore Local Talent</a>
+            </div>
+        </section>
+
+        <!-- Featured Categories Section -->
+        <section class="featured-categories section-padding">
+            <div class="container">
+                <h2 class="text-center">Featured Categories</h2>
+                <div class="category-grid">
+                    <div class="category-card card"> <!-- Added card class for consistency -->
+                        <img src="images\beauty.jpg" alt="Beauty Icon Placeholder" class="category-icon"> <!-- Placeholder -->
+                        <h3>Beauty & Wellness</h3>
+                        <p>Find local beauticians, spa services, makeup artists, and wellness coaches.</p>
+                        <a href="product-listings.html?category=beauty" class="btn btn-secondary btn-sm" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">View Beauty</a>
+                    </div>
+                    <div class="category-card card">
+                        <img src="images\tailor.jpg" alt="Fashion Icon Placeholder" class="category-icon"> <!-- Placeholder -->
+                        <h3>Fashion & Tailoring</h3>
+                        <p>Custom clothing, unique designs, alterations, and fashion accessories.</p>
+                         <a href="product-listings.html?category=fashion" class="btn btn-secondary btn-sm" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">View Fashion</a>
+                    </div>
+                    <div class="category-card card">
+                         <img src="images\food.jpg" alt="Food Icon Placeholder" class="category-icon"> <!-- Placeholder -->
+                        <h3>Food & Baking</h3>
+                        <p>Home bakers, caterers, specialty foods, and delicious homemade treats.</p>
+                         <a href="product-listings.html?category=food" class="btn btn-secondary btn-sm" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">View Food</a>
+                    </div>
+                    <div class="category-card card">
+                         <img src="images\arts.jpg" alt="Arts Icon Placeholder" class="category-icon"> <!-- Placeholder -->
+                        <h3>Arts & Crafts</h3>
+                        <p>Handmade goods, paintings, pottery, custom artwork, and craft supplies.</p>
+                         <a href="product-listings.html?category=arts" class="btn btn-secondary btn-sm" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">View Arts</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonials section-padding" style="background-color: var(--background-color);"> <!-- Adjusted background -->
+            <div class="container">
+                <h2 class="text-center">What Our Community Says</h2>
+                <div class="testimonial-card">
+                    <blockquote>"I found the most amazing custom cake maker through MiniBiz! It was delicious and beautifully made. Made the party extra special!"</blockquote>
+                    <cite>- Sarah K.</cite>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Finally, a platform to discover local artists easily. I commissioned a fantastic portrait and couldn't be happier with the entire process."</blockquote>
+                    <cite>- Mark T.</cite>
+                </div>
+                 <div class="testimonial-card">
+                    <blockquote>"Needed a dress altered quickly for an event and found a wonderful local tailor here. Great service, fair price, and saved my outfit!"</blockquote>
+                    <cite>- Emily R.</cite>
+                </div>
+                 <div class="testimonial-card">
+                    <blockquote>"As a seller, MiniBiz helped me reach customers I wouldn't have found otherwise. The dashboard is easy to use!"</blockquote>
+                    <cite>- David L. (Home Baker)</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+         <section class="how-it-works section-padding">
+            <div class="container text-center">
+                <h2>How MiniBiz Works</h2>
+                <p class="lead">Connecting local buyers and sellers is simple:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                    <div class="step-card">
+                        <h4>1. Sellers Join & List</h4>
+                        <p>Local entrepreneurs create profiles and showcase their unique products or services.</p>
+                    </div>
+                     <div class="step-card">
+                        <h4>2. Customers Discover</h4>
+                        <p>Browse categories, search locally, and find the perfect match for your needs.</p>
+                    </div>
+                     <div class="step-card">
+                        <h4>3. Connect & Support</h4>
+                        <p>Contact sellers directly to inquire, book, or purchase, supporting your community!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Join) -->
+        <section class="cta-join section-padding" style="background-color: var(--primary-color); color: #fff;">
+            <div class="container text-center">
+                <h2 style="color: #fff;">Ready to Grow Your Small Business?</h2>
+                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 30px auto;">Join the MiniBiz community today and connect with customers looking for your unique skills and products.</p>
+                <a href="join.html" class="btn btn-accent">Become a Seller</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> | <!-- Add link later -->
+                <a href="#">Privacy Policy</a> <!-- Add link later -->
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2025</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
