@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Contact Us</title>
+     <meta name="description" content="Get in touch with the MiniBiz team. Send us your questions, feedback, or inquiries using our contact form.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html">Explore</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html">Join as Seller</a></li>
+                    <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+             <div class="card login-register-container" style="max-width: 650px;"> <!-- Wider card for contact -->
+                <h1 class="text-center">Get In Touch</h1>
+                <p class="text-center text-muted">We'd love to hear from you! Whether you have questions, feedback, or need support, please reach out.</p>
+                <hr style="margin: 25px 0; border-color: var(--border-color);">
+
+                 <!-- NOTE: This form needs backend processing to actually send email -->
+                <form id="contact-form" action="#" method="POST">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                         <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                             <option value="">-- Please select a subject --</option>
+                             <option value="General Inquiry">General Inquiry</option>
+                             <option value="Seller Support">Seller Support Question</option>
+                             <option value="Buyer Support">Buyer Support Question</option>
+                             <option value="Feedback">Website Feedback</option>
+                             <option value="Partnership">Partnership Inquiry</option>
+                             <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Please type your message here..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                         <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Send Message</button>
+                    </div>
+                </form>
+
+                <!-- Optional: Add other contact info -->
+                 <div class="contact-info text-center" style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
+                    <h3>Other Ways to Connect</h3>
+                    <p class="text-muted">You can also find answers in our <a href="faq.html">FAQ section</a> or reach us directly:</p>
+                    <p style="margin-top: 15px;">
+                        <strong >Email:</strong> <a href="mailto:support@minibiz.example.com">support@minibiz.example.com</a><br>
+                        <!-- <strong style="color: var(--text-color)">Phone:</strong> <span class="text-muted">+1 (555) 123-4567 (Mon-Fri, 9am-5pm EST - Placeholder)</span> -->
+                    </p>
+                    <!-- Add social media links if desired -->
+                     <!-- <p style="margin-top: 15px;">
+                        <a href="#" class="text-muted" style="margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-muted" style="margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-muted" style="margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                    </p> -->
+                </div>
+             </div>
+        </div>
+    </main>
+
+   <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> | <!-- Add link later -->
+                <a href="#">Privacy Policy</a> <!-- Add link later -->
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Ignore everything by default
+*
+
+# Keep .gitignore itself
+!.gitignore
+
+# Allow only frontend and backend folders
+!/frontend/
+!/frontend/**
+!/backend/
+!/backend/**
+
+# But inside backend, ignore sensitive files
+/backend/config/*.json
+/backend/config/*.txt
+/backend/config/*.env
+/backend/config/*.key
+/backend/config/*.secret
+/backend/db_passwords.txt
+/backend/.env
+/backend/logs/
+*.log
+
+# Frontend sensitive files
+/frontend/.env
+/frontend/dist/
+
+# Ignore unnecessary folders
+/app/
+edit/
+
+# Ignore project docs and zips
+*.pptx
+*.docx
+*.pdf
+*.zip
+
+# Node / Python common ignores 
+node_modules/
+__pycache__/
+
+# Editor / OS files
+.vscode/
+.DS_Store
+Thumbs.db

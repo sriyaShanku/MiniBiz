@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBiz | Explore Local Products & Services</title>
+    <meta name="description" content="Browse and filter local products and services on MiniBiz. Find bakers, artists, tailors, and more near you.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">MiniBiz</a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+                 <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product-listings.html" class="active" aria-current="page">Explore</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="join.html">Join as Seller</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                    <li class="header-cart"><a href="cart.html" title="View Cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge" id="cart-item-count" style="display: none;">0</span></a></li>
+                     <li><button class="dark-mode-toggle" aria-label="Switch to dark mode">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <h1 class="text-center">Explore Local Listings</h1>
+            <p class="lead text-center" style="max-width: 700px; margin: 0 auto 50px auto;">Find unique products and skilled services offered by entrepreneurs in your community.</p>
+
+            <div class="product-page-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters">
+                    <div class="card">
+                        <h3>Filter & Sort</h3>
+                        <!-- NOTE: Filter functionality requires JavaScript/Backend -->
+                        <form id="filter-form" action="#" method="GET">
+                             <div class="filter-group">
+                                <label class="group-title" for="search-term">Search Listings</label>
+                                <input type="text" id="search-term" name="search" placeholder="e.g., 'cake', 'logo', 'repair'">
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="group-title" for="category-filter">Category</label>
+                                <select id="category-filter" name="category">
+                                    <option value="all">All Categories</option>
+                                     <option value="beauty">Beauty & Wellness</option>
+                                     <option value="fashion">Fashion & Tailoring</option>
+                                     <option value="food">Food & Baking</option>
+                                     <option value="arts">Arts & Crafts</option>
+                                     <option value="home">Home & Repair</option>
+                                     <option value="education">Education & Tutoring</option>
+                                     <option value="pets">Pet Services</option>
+                                     <option value="other">Other Services</option>
+                                </select>
+                            </div>
+                             <div class="filter-group">
+                                <label class="group-title" for="location-filter">Location</label>
+                                <input type="text" id="location-filter" name="location" placeholder="Enter Town or Postcode">
+                            </div>
+                             <div class="filter-group">
+                                 <label class="group-title">Price Range</label>
+                                 <div class="form-check"><input type="checkbox" id="price1" name="price_range" value="low"> <label for="price1">Under ₹1000</label></div>
+                                 <div class="form-check"><input type="checkbox" id="price2" name="price_range" value="mid"> <label for="price2">₹1000 - ₹10000</label></div>
+                                 <div class="form-check"><input type="checkbox" id="price3" name="price_range" value="high"> <label for="price3">Above ₹10000</label></div>
+                                 <div class="form-check"><input type="checkbox" id="price4" name="price_range" value="inquire"> <label for="price4">Inquire for Price</label></div>
+                             </div>
+                             <div class="filter-group">
+                                <label class="group-title" for="sort-by">Sort By</label>
+                                <select id="sort-by" name="sort">
+                                    <option value="relevance">Relevance</option>
+                                    <option value="newest">Newest First</option>
+                                    <option value="price_asc">Price: Low to High</option>
+                                    <option value="price_desc">Price: High to Low</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Apply Filters</button>
+                        </form>
+                    </div>
+                </aside>
+
+                <!-- Product Grid -->
+                <section class="product-grid-area">
+                    <div class="product-grid-header">
+                        <h2>Showing <span id="results-count">12</span> Listings</h2> <!-- Update count dynamically -->
+                        <!-- Sort options could also go here -->
+                    </div>
+
+                    <div class="product-grid">
+                        
+                        <!-- Product Card 1 -->
+                        <article class="product-card card">
+                            <a href="product-detail.html#prod1"> <!-- Link to Detail Page Placeholder -->
+                                <img src="/images/cake1.png" alt="Custom Celebration Cake"height="5"width="5">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod1">Custom Celebration Cake</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller1">Annie's Bakery</a></div>
+                                <p class="description">Delicious, beautifully designed cakes for birthdays, weddings, and more...</p>
+                                <div class="price">₹645</div>
+                                <a href="product-detail.html#prod1" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                         <!-- Product Card 2 -->
+                        <article class="product-card card">
+                             <a href="product-detail.html#prod2">
+                                <img src="/images/cup.jpg" alt="Handmade Ceramic Mug" height="10">
+                             </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod2">Handmade Ceramic Mug</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller2">Clay Creations Studio</a></div>
+                                <p class="description">Unique, wheel-thrown mugs. Perfect for gifts or your morning coffee.</p>
+                                <div class="price">₹999</div>
+                                <a href="product-detail.html#prod2" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                         <!-- Product Card 3: Service -->
+                        <article class="product-card card">
+                            <a href="product-detail.html#prod3">
+                               <img src="/images/stiching.jpg" alt="Dress Alterations Service">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod3">Expert Dress Alterations</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller3">Sew Perfect Tailoring</a></div>
+                                <p class="description">Professional alterations for bridal, formal wear, suits, and casual clothing.</p>
+                                <div class="price">Starting from ₹2500</div>
+                                <a href="product-detail.html#prod3" class="btn btn-secondary">View Service</a>
+                            </div>
+                        </article>
+
+                        <!-- Product Card 4: Service -->
+                        <article class="product-card card">
+                            <a href="product-detail.html#prod4">
+                               <img src="/images/makeup.jpg" alt="Event Makeup Artist">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod4">Event Makeup Artist</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller4">Glam by Chloe</a></div>
+                                <p class="description">Professional makeup services for weddings, proms, photo shoots & special occasions.</p>
+                                <div class="price">Inquire for rates</div>
+                                <a href="product-detail.html#prod4" class="btn btn-secondary">View Service</a>
+                            </div>
+                        </article>
+
+                         <!-- Product Card 5 -->
+                        <article class="product-card card">
+                            <a href="product-detail.html#prod5">
+                                <img src="/images/scarfs.png" alt="Hand-knitted Scarf">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod5">Cozy Hand-Knitted Scarf</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller5">Warm Wraps by Liz</a></div>
+                                <p class="description">Soft and warm scarves made with premium yarn. Various colors available.</p>
+                                <div class="price">₹2600</div>
+                                <a href="product-detail.html#prod5" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                         <!-- Product Card 6: Food -->
+                        <article class="product-card card">
+                            <a href="product-detail.html#prod6">
+                               <img src="/images/bread.jpg" alt="Artisan Sourdough Bread">
+                           </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod6">Artisan Sourdough Bread</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller6">Dave's Local Loaves</a></div>
+                                <p class="description">Freshly baked, naturally leavened sourdough bread. Order for local pickup.</p>
+                                <div class="price">₹200 per loaf</div>
+                                <a href="product-detail.html#prod6" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                         <!-- Product Card 7: Service -->
+                        <article class="product-card card">
+                           <a href="product-detail.html#prod7">
+                                <img src="/images/pets.jpg" alt="Pet Sitting Services">
+                            </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod7">Reliable Pet Sitting</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller7">Happy Paws Care</a></div>
+                                <p class="description">In-home pet sitting and dog walking services. Experienced and insured.</p>
+                                <div class="price">₹1700 per visit/day</div>
+                                <a href="product-detail.html#prod7" class="btn btn-secondary">View Service</a>
+                            </div>
+                        </article>
+
+                        <!-- Product Card 8 -->
+                        <article class="product-card card">
+                             <a href="product-detail.html#prod8">
+                                <img src="/images/logo.jpg" alt="Custom Logo Design">
+                             </a>
+                            <div class="product-card-content">
+                                <h3><a href="product-detail.html#prod8">Custom Logo Design</a></h3>
+                                <div class="seller-info">By: <a href="seller-profile.html#seller8">Creative Spark Design</a></div>
+                                <p class="description">Professional logo and branding design for small businesses and startups.</p>
+                                <div class="price">Starting at ₹12000</div>
+                                <a href="product-detail.html#prod8" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </article>
+
+                         <!-- Add more product cards as needed -->
+                         <!-- Product Card 9 -->
+                         <article class="product-card card">
+                             <a href="product-detail.html#prod9">
+                                 <img src="/images/honey.jpg" alt="Local Honey Jars">
+                             </a>
+                             <div class="product-card-content">
+                                 <h3><a href="product-detail.html#prod9">Pure Local Honey</a></h3>
+                                 <div class="seller-info">By: <a href="seller-profile.html#seller9">Bee Kind Apiary</a></div>
+                                 <p class="description">Raw, unfiltered honey harvested locally. Delicious and natural.</p>
+                                 <div class="price">₹3500 (5kgs Jar)</div>
+                                 <a href="product-detail.html#prod9" class="btn btn-secondary">View Details</a>
+                             </div>
+                         </article>
+
+                         <!-- Product Card 10: Service -->
+                         <article class="product-card card">
+                              <a href="product-detail.html#prod10">
+                                 <img src="/images/gardens.png" alt="Gardening Consultation">
+                              </a>
+                             <div class="product-card-content">
+                                 <h3><a href="product-detail.html#prod10">Garden Design Consultation</a></h3>
+                                 <div class="seller-info">By: <a href="seller-profile.html#seller10">Green Thumb Gardens</a></div>
+                                 <p class="description">Get expert advice on planning, planting, and maintaining your garden space.</p>
+                                 <div class="price">₹15000 per hour</div>
+                                 <a href="product-detail.html#prod10" class="btn btn-secondary">View Service</a>
+                             </div>
+                         </article>
+
+
+                    </div><!-- End Product Grid -->
+
+                    <!-- Pagination Placeholder -->
+                    <nav class="pagination" aria-label="Page navigation">
+                        <a href="#"  class="btn btn-secondary disabled" aria-disabled="true">&laquo; Prev</a>
+                        <span aria-current="page">Page 1 of 3</span> <!-- Update dynamically -->
+                        <a href="#" class="btn btn-secondary">Next &raquo;</a>
+                    </nav>
+                </section>
+            </div> <!-- End Product Page Layout -->
+        </div>
+    </main>
+
+   <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="about.html">About Us</a> |
+                <a href="services.html">Services</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#">Terms of Service</a> | <!-- Add link later -->
+                <a href="#">Privacy Policy</a> <!-- Add link later -->
+            </div>
+            <p style="margin-top: 15px;">&copy; <span id="current-year">2024</span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
