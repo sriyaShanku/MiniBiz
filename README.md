@@ -6,7 +6,7 @@ and customer engagement.
 
 ## Features
 - Product listing and browsing
-- User authentication (login & signup)
+- User authentication (login & register as buyer or seller)
 - Cart management
 - Booking system
 - Direct buyer-seller communication
