@@ -23,7 +23,7 @@ Experience the live project here
 - *Backend:* Node.js
 - *Database:* MySQL
 
-# 🗂️ MiniBiz Project Structure
+## 🗂️ MiniBiz Project Structure
 
 📦 MiniBiz  
 ├── 📂 backend  
