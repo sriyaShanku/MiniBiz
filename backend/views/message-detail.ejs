@@ -1,0 +1,55 @@
+<%- include('../partials/header', { title: title }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <div class="dashboard-layout">
+            <%- include('./partials/dashboard-sidebar') %> <!-- Assuming you have a dashboard sidebar partial -->
+
+            <div class="dashboard-content">
+                <div class="card">
+                    <nav aria-label="breadcrumb" style="margin-bottom: 20px;">
+                        <ol class="breadcrumb" style="background-color: transparent; padding: 0;">
+                            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard/messages">Messages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">View Message</li>
+                        </ol>
+                    </nav>
+
+                    <% if (locals.message) { %>
+                        <h2>Subject: <%= message.subject || '(No Subject)' %></h2>
+                        <hr>
+                        <div style="margin-bottom: 20px;">
+                            <p><strong>From:</strong> <%= message.sender_name %><% if (message.sender_email) { %> (<%= message.sender_email %>)<% } %></p>
+                            <p><strong>Received:</strong> <%= new Date(message.created_at).toLocaleString() %></p>
+                            <% if (message.product_name) { %>
+                                <p><strong>Regarding Product:</strong> <a href="/product-detail/<%= message.product_id_for_link %>"><%= message.product_name %></a></p>
+                            <% } %>
+                        </div>
+
+                        <h4>Message:</h4>
+                        <div class="message-body" style="background-color: var(--background-color); padding: 15px; border-radius: var(--border-radius); margin-bottom: 30px; border: 1px solid var(--border-color);">
+                            <%- message.body.replace(/\n/g, '<br>') %>
+                        </div>
+
+                        <hr>
+                        <h4>Reply to this Message:</h4>
+                        <form action="/dashboard/messages/reply/<%= message.id %>" method="POST">
+                            <div class="form-group">
+                                <label for="reply_body">Your Reply:</label>
+                                <textarea class="form-control" id="reply_body" name="reply_body" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Reply</button>
+                            <a href="/dashboard/messages" class="btn btn-secondary" style="margin-left: 10px;">Back to Messages</a>
+                        </form>
+
+                    <% } else { %>
+                        <p>Message details could not be loaded.</p>
+                        <a href="/dashboard/messages" class="btn btn-secondary">Back to Messages</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

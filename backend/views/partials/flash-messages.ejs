@@ -1,0 +1,20 @@
+<% if (locals.error_msg && error_msg.length > 0) { %>
+    <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px 15px; border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid #f5c6cb;">
+        <%= error_msg %>
+    </div>
+<% } %>
+<% if (locals.success_msg && success_msg.length > 0) { %>
+    <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: 10px 15px; border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid #c3e6cb;">
+        <%= success_msg %>
+    </div>
+<% } %>
+<% if (locals.error && error.length > 0 && (!locals.error_msg || error_msg !== error) ) { %> <!-- For Passport's own error messages, avoid duplicate display if same as error_msg -->
+    <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px 15px; border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid #f5c6cb;">
+        <%= error %>
+    </div>
+<% } %>
+<% if (locals.info_msg && info_msg.length > 0) { %>
+    <div class="alert alert-info" style="background-color: #cce5ff; color: #004085; padding: 10px 15px; border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid #b8daff;">
+        <%= info_msg %>
+    </div>
+<% } %>

@@ -1,0 +1,45 @@
+<%- include('partials/header', { title: 'MiniBiz | Your Shopping Cart', extraHead: '<meta name="robots" content="noindex, nofollow">' }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <h1 class="text-center" style="margin-bottom: 40px;">Your Shopping Cart</h1>
+
+        <!-- Display Flash Messages for cart related actions if any -->
+        <% if (locals.error_msg && error_msg.length > 0) { %>
+            <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= error_msg %></div>
+        <% } %>
+        <% if (locals.success_msg && success_msg.length > 0) { %>
+            <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= success_msg %></div>
+        <% } %>
+
+        <div class="cart-container">
+            <section class="cart-items" aria-labelledby="cart-items-heading">
+                <h2 id="cart-items-heading" class="sr-only">Items in your cart</h2>
+                <div class="card">
+                     <div id="cart-items-container">
+                        <!-- Cart items will be dynamically inserted here by script.js -->
+                        <!-- Example: You could render items from server-side session if not using localStorage fully -->
+                        <% /* if (locals.sessionCartItems && sessionCartItems.length > 0) { %>
+                            <% sessionCartItems.forEach(item => { %>
+                                <div class="cart-item" data-id="<%= item.id %>"> ... </div>
+                            <% }); %>
+                        <% } */ %>
+                    </div>
+                     <div id="cart-empty-message" style="display: none;">
+                        <p>Your cart is currently empty.</p>
+                        <a href="/product-listings" class="btn btn-primary" style="margin-top: 15px;">Start Shopping</a>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="cart-summary" aria-labelledby="cart-summary-heading">
+                <h2 id="cart-summary-heading" class="sr-only">Order Summary</h2>
+                <div id="cart-summary-container">
+                    <!-- Summary content will be dynamically inserted here by script.js -->
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

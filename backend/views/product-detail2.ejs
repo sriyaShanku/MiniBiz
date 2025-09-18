@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: 'Test Product Detail' }) %>
+<main class="section-padding">
+    <div class="container">
+        <h1>Product Detail Test</h1>
+        <% if (locals.product) { %>
+            <p>Product Name: <%= product.name %></p>
+        <% } else { %>
+            <p>No product data passed.</p>
+        <% } %>
+    </div>
+</main>
+<%- include('partials/footer') %>

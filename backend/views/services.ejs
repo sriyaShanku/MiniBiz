@@ -1,0 +1,102 @@
+<%- include('partials/header', { title: 'MiniBiz | Services & Products Offered' }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <h1 class="text-center">Explore Services & Products</h1>
+        <p class="lead text-center" style="max-width: 750px; margin: 0 auto 50px auto;">From handmade crafts to professional services, discover the diverse offerings from talented local entrepreneurs on MiniBiz.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+
+            <div class="service-category card">
+                <h2><span class="icon-placeholder" style="font-size: 1.5rem;">💄</span> Beauty & Wellness</h2>
+                <p>Connect with local professionals for services like:</p>
+                <ul>
+                    <li>✓ Hair Styling & Coloring</li>
+                    <li>✓ Makeup Artistry (Events, Bridal)</li>
+                    <li>✓ Nail Technicians (Manicures, Pedicures)</li>
+                    <li>✓ Massage Therapy & Bodywork</li>
+                    <li>✓ Skincare Consultations & Facials</li>
+                    <li>✓ Personal Trainers & Yoga Instructors</li>
+                </ul>
+                <a href="/product-listings?category=beauty" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore Beauty</a>
+            </div>
+
+            <div class="service-category card">
+                <h2><span class="icon-placeholder" style="font-size: 1.5rem;">👗</span> Fashion & Tailoring</h2>
+                <p>Discover unique clothing, accessories, and skilled tailoring:</p>
+                <ul>
+                    <li>✓ Custom Dressmaking & Design</li>
+                    <li>✓ Clothing Alterations & Repairs</li>
+                    <li>✓ Handmade Jewelry & Accessories</li>
+                    <li>✓ Personal Styling & Wardrobe Consulting</li>
+                    <li>✓ Upcycled & Vintage Fashion Finds</li>
+                    <li>✓ Custom T-shirt Printing</li>
+                </ul>
+                 <a href="/product-listings?category=fashion" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore Fashion</a>
+            </div>
+
+            <div class="service-category card">
+                 <h2><span class="icon-placeholder" style="font-size: 1.5rem;">🍰</span> Food & Baking</h2>
+                <p>Satisfy your cravings with homemade goodness:</p>
+                <ul>
+                    <li>✓ Custom Cakes & Celebration Bakes</li>
+                    <li>✓ Home Baked Breads, Pastries & Cookies</li>
+                    <li>✓ Small Event & Party Catering</li>
+                    <li>✓ Specialty Diet Foods (Gluten-free, Vegan, etc.)</li>
+                    <li>✓ Meal Prep & Delivery Services</li>
+                    <li>✓ Homemade Jams, Sauces & Preserves</li>
+                </ul>
+                 <a href="/product-listings?category=food" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore Food</a>
+            </div>
+
+            <div class="service-category card">
+                <h2><span class="icon-placeholder" style="font-size: 1.5rem;">🎨</span> Arts & Crafts</h2>
+                <p>Find unique handmade items and artistic services:</p>
+                <ul>
+                    <li>✓ Custom Paintings, Portraits & Illustrations</li>
+                    <li>✓ Handmade Pottery, Ceramics & Sculpture</li>
+                    <li>✓ Handcrafted Home Decor & Furnishings</li>
+                    <li>✓ Photography Services (Portraits, Events)</li>
+                    <li>✓ Knitting, Crochet & Textile Arts</li>
+                    <li>✓ Calligraphy, Custom Stationery & Prints</li>
+                </ul>
+                <a href="/product-listings?category=arts" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore Arts</a>
+            </div>
+
+             <div class="service-category card">
+                <h2><span class="icon-placeholder" style="font-size: 1.5rem;">🛠️</span> Home & Repair</h2>
+                <p>Find skilled help for various home needs:</p>
+                <ul>
+                    <li>✓ Minor Handyman Services</li>
+                    <li>✓ Gardening & Plant Care Advice/Services</li>
+                    <li>✓ Home Organization & Decluttering</li>
+                    <li>✓ Tech Support & Setup (Computers, Smart Home)</li>
+                    <li>✓ Furniture Upcycling & Refinishing</li>
+                    <li>✓ House Cleaning Services</li>
+                </ul>
+                <a href="/product-listings?category=home" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore Home</a>
+            </div>
+
+             <div class="service-category card">
+                <h2><span class="icon-placeholder" style="font-size: 1.5rem;">🎓</span> Education & Other</h2>
+                <p>Explore diverse skills and services offered locally:</p>
+                <ul>
+                    <li>✓ Tutoring (Academic Subjects, Test Prep)</li>
+                    <li>✓ Music Lessons (Piano, Guitar, etc.)</li>
+                    <li>✓ Language Instruction</li>
+                    <li>✓ Pet Sitting & Dog Walking</li>
+                    <li>✓ Event Planning Assistance</li>
+                    <li>✓ Professional Writing & Editing</li>
+                </ul>
+                 <a href="/product-listings?category=other" class="btn btn-sm btn-secondary" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">Explore More</a>
+             </div>
+        </div>
+
+        <div class="text-center section-padding-sm">
+            <h2>Ready to find what you need?</h2>
+            <a href="/product-listings" class="btn btn-primary" style="margin-top: 15px;">Browse All Listings</a>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
