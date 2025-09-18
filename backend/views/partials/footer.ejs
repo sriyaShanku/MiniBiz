@@ -1,0 +1,31 @@
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="/about">About Us</a> |
+                <a href="/services">Services</a> |
+                <a href="/faq">FAQ</a> |
+                <a href="/contact">Contact</a> |
+                <a href="/terms">Terms of Service</a> | <!-- Create terms.ejs -->
+                <a href="/privacy">Privacy Policy</a> <!-- Create privacy.ejs -->
+            </div>
+            <p style="margin-top: 15px;">© <span id="current-year"><%= new Date().getFullYear() %></span> MiniBiz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Pass user data to frontend if needed, e.g., for dark mode preference or cart initialization
+        // Be careful not to expose sensitive data like password hashes.
+        const serverData = {
+            user: <%- locals.user ? JSON.stringify({ id: user.id, role: user.role, fullName: user.full_name /* add other safe fields */ }) : null %>,
+            // You could also pass initial cart data if you hydrate it from server-side session on page load
+            // initialCart: <%- locals.cart ? JSON.stringify(cart) : '[]' %>
+        };
+    </script>
+    <script src="/js/script.js"></script>
+    <% if (typeof pageScripts !== 'undefined' && pageScripts.length > 0) { %>
+        <% pageScripts.forEach(scriptSrc => { %>
+            <script src="<%= scriptSrc %>"></script>
+        <% }) %>
+    <% } %>
+</body>
+</html>

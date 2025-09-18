@@ -1,0 +1,73 @@
+<%- include('partials/header', { title: 'MiniBiz | Seller Dashboard' }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <h1>Seller Dashboard</h1>
+        <p class="lead" style="margin-bottom: 30px;">Welcome back, <span id="seller-name"><%= locals.sellerName || (locals.user ? user.full_name : 'Seller') %></span>!</p>
+
+        <!-- Display Flash Messages -->
+        <% if (locals.error_msg && error_msg.length > 0) { %>
+            <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= error_msg %></div>
+        <% } %>
+        <% if (locals.success_msg && success_msg.length > 0) { %>
+            <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= success_msg %></div>
+        <% } %>
+
+        <div class="dashboard-layout">
+            <%- include('./partials/dashboard-sidebar') %>
+            <!-- Dashboard Content Area - This will be where specific sub-page content is rendered -->
+            <!-- For a single dashboard.ejs, you'd use if/else based on the actual route -->
+            <!-- Or, better, create separate EJS files for each dashboard section -->
+            <!-- e.g., dashboard/overview.ejs, dashboard/listings.ejs -->
+
+            <!-- For now, let's assume this dashboard.ejs shows the OVERVIEW section from your HTML -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section id="overview" class="card dashboard-section">
+                    <h2>Overview</h2>
+                    <p class="text-muted">Your recent activity at a glance.</p>
+                    <% if (locals.stats) { %>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 25px;">
+                            <div class="stat-card">
+                                <strong><%= stats.activeListings || 0 %></strong><small>Active Listings</small>
+                            </div>
+                            <div class="stat-card">
+                                <strong><%= stats.newOrders || 0 %></strong><small>New Orders</small> <!-- Adjust what "new" means -->
+                            </div>
+                            <div class="stat-card">
+                                <strong><%= stats.unreadMessages || 0 %></strong><small>Unread Messages</small>
+                            </div>
+                             <div class="stat-card">
+                                <strong><%= stats.profileViews || 0 %></strong><small>Profile Views (30d)</small> <!-- Implement later -->
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <a href="/dashboard/listings" class="btn btn-primary">Manage Listings</a>
+                            <a href="/dashboard/messages" class="btn btn-secondary" style="margin-left: 10px;">Check Messages</a>
+                        </div>
+                    <% } else { %>
+                        <p class="text-muted">Overview data is currently unavailable.</p>
+                    <% } %>
+                </section>
+
+                <!-- 
+                    IF you want to render other sections (My Listings, Orders, etc.) conditionally
+                    WITHIN this dashboard.ejs based on currentPath, it would look like:
+                -->
+                <% /* if (currentPath.startsWith('/dashboard/listings')) { %>
+                    <%- include('dashboard/listings-management', { products: productsDataForListingsView }) %> 
+                <% } else if (currentPath.startsWith('/dashboard/profile')) { %>
+                    <%- include('dashboard/profile-settings', { profileData: userProfileData }) %>
+                <% } */ %>
+                <!-- 
+                    However, it's generally cleaner to have separate EJS files for each main dashboard section
+                    and have your dashboardController render the specific EJS.
+                    e.g., dashboardController.getSellerListings renders 'dashboard/listings-management.ejs'
+                -->
+
+            </div> <!-- End Dashboard Content -->
+        </div> <!-- End Dashboard Layout -->
+    </div>
+</main>
+
+<%- include('partials/footer') %>

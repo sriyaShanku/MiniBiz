@@ -1,0 +1,25 @@
+// backend/views/error.ejs
+<%- include('partials/header', { title: title || 'Error Occurred' }) %>
+
+<main class="section-padding">
+    <div class="container text-center">
+        <div class="card" style="max-width: 600px; margin: 40px auto; padding: 40px;">
+            <i class="fa-solid fa-triangle-exclamation fa-4x" style="color: #dc3545; margin-bottom: 20px;"></i>
+            <h1><%= title || 'An Error Occurred' %></h1>
+            <p class="lead"><%= message || 'Sorry, something went wrong on our end. Please try again later.' %></p>
+
+            <% if (locals.errorDetail && process && process.env && process.env.NODE_ENV === 'development') { %>
+                <div style="margin-top: 30px; text-align: left; background-color: var(--background-color); padding: 15px; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--primary-color);">Developer Details:</h4>
+                    <pre style="white-space: pre-wrap; word-wrap: break-word; font-size: 0.9em; color: var(--text-muted);"><%= errorDetail %></pre>
+                </div>
+            <% } %>
+
+            <div style="margin-top: 30px;">
+                <a href="/" class="btn btn-primary">Go to Homepage</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

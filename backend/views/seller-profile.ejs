@@ -1,0 +1,180 @@
+<%- include('partials/header', {
+    title: title || (sellerProfile ? 'MiniBiz | Profile - ' + sellerProfile.business_name : 'MiniBiz | Seller Profile'),
+    description: sellerProfile ? (sellerProfile.tagline || (sellerProfile.description ? sellerProfile.description.substring(0,155) : 'View seller profile and offerings on MiniBiz.')) : 'View seller profile on MiniBiz.'
+}) %>
+
+<main class="section-padding">
+    <div class="container">
+         <p style="margin-bottom: 25px;"><a href="/product-listings">« Back to Explore</a></p>
+
+         <%- include('partials/flash-messages') %>
+
+        <% if (locals.sellerProfile && locals.sellerUser) { %>
+            <div class="profile-container card">
+                <!-- Profile Header -->
+                <section class="profile-header" id="seller<%= sellerUser.id %>">
+                    <div class="profile-avatar">
+                        <img src="<%= sellerProfile.profile_image_url || '/images/default-seller-avatar.png' %>" alt="<%= sellerProfile.business_name %> profile picture">
+                    </div>
+                    <div class="profile-info">
+                        <h1><%= sellerProfile.business_name %></h1>
+                        <% if (sellerProfile.tagline) { %>
+                            <p class="tagline"><em><%= sellerProfile.tagline %></em></p>
+                        <% } %>
+                        <div class="profile-contact">
+                             <% if (sellerProfile.location_area) { %>
+                                <span><i class="fa-solid fa-location-dot" style="color: var(--primary-color); margin-right: 5px;"></i> <%= sellerProfile.location_area %></span>
+                             <% } %>
+                             <span><i class="fa-solid fa-envelope" style="color: var(--primary-color); margin-right: 5px;"></i>
+                                <button class="btn-link contact-seller-btn"
+                                    style="padding:0; border:none; background:none; color: var(--primary-color); text-decoration:underline; cursor:pointer; font-size: inherit;"
+                                    data-seller-id="<%= sellerUser.id %>"
+                                    data-seller-name="<%- sellerProfile.business_name.replace(/"/g, "&quot;").replace(/'/g, "&#39;") %>"
+                                    onclick="openContactModal(this)">
+                                    Contact via MiniBiz
+                                </button>
+                            </span>
+                             <% if (sellerProfile.phone) { %> <!-- Consider privacy implications of displaying phone numbers directly -->
+                                <span><i class="fa-solid fa-phone" style="color: var(--primary-color); margin-right: 5px;"></i> <%= sellerProfile.phone %></span>
+                             <% } %>
+                             <% if (sellerProfile.website_social && sellerProfile.website_social.startsWith('http')) { %>
+                                <span><i class="fa-solid fa-globe" style="color: var(--primary-color); margin-right: 5px;"></i> <a href="<%= sellerProfile.website_social %>" target="_blank" rel="noopener noreferrer"><%= sellerProfile.website_social.replace(/^https?:\/\//, '').split('/')[0] %></a></span>
+                             <% } else if (sellerProfile.website_social) { %>
+                                <span><i class="fa-solid fa-globe" style="color: var(--primary-color); margin-right: 5px;"></i> <%= sellerProfile.website_social %></span>
+                             <% } %>
+
+                             <% if (sellerProfile.is_verified) { // You'd set this in DB/controller logic %>
+                                <span style="color: var(--secondary-darker);"><i class="fa-solid fa-check-circle" style="margin-right: 3px;"></i> Verified Seller</span>
+                             <% } %>
+                         </div>
+                         <button class="btn btn-primary contact-seller-btn" style="margin-top: 20px;"
+                            data-seller-id="<%= sellerUser.id %>"
+                            data-seller-name="<%- sellerProfile.business_name.replace(/"/g, "&quot;").replace(/'/g, "&#39;") %>"
+                            onclick="openContactModal(this)">
+                            <i class="fa-solid fa-paper-plane"></i> Contact <%= sellerProfile.business_name.split(' ')[0] %>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- About the seller Section -->
+                <section class="profile-about section-padding-sm">
+                    <h2>About <%= sellerProfile.business_name %></h2>
+                    <% if (sellerProfile.description) { %>
+                        <div class="content-area">
+                            <%- sellerProfile.description.replace(/\n/g, '<br><br>') %>
+                        </div>
+                    <% } else { %>
+                        <p class="text-muted">This seller hasn't added a detailed description yet.</p>
+                    <% } %>
+                </section>
+
+                 <!-- Seller's Listings -->
+                 <% if (locals.sellerListings && sellerListings.length > 0) { %>
+                     <section class="profile-listings section-padding-sm">
+                        <h2>Offerings from <%= sellerProfile.business_name %></h2>
+                         <div class="product-grid" style="margin-top: 30px;">
+                            <% sellerListings.forEach(product => { %>
+                                <article class="product-card card">
+                                    <a href="/product-detail/<%= product.id %>" class="product-image-link">
+                                        <img src="<%= product.image_url || '/images/default-product.png' %>" alt="<%= product.name %>" style="height:180px; object-fit:cover; border-bottom: 1px solid var(--border-color);">
+                                    </a>
+                                    <div class="product-card-content">
+                                        <h3><a href="/product-detail/<%= product.id %>"><%= product.name %></a></h3>
+                                        <% if (product.description) { %>
+                                            <p class="description">
+                                                <%= product.description.length > 80 ? product.description.substring(0, 77) + '...' : product.description %>
+                                            </p>
+                                        <% } %>
+                                        <div class="price">
+                                            <% if (typeof product.price === 'number' && product.price >= 0) { %>
+                                                <%= product.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }) %>
+                                            <% } else { %>
+                                                <%= product.price %>
+                                            <% } %>
+                                        </div>
+                                        <a href="/product-detail/<%= product.id %>" class="btn btn-secondary btn-sm"><%= product.is_service ? 'View Service' : 'View Details' %></a>
+                                    </div>
+                                </article>
+                            <% }); %>
+                         </div>
+                          <p class="text-center text-muted" style="margin-top: 20px; font-size: 0.9rem;">(Showing recent/top listings)</p>
+                     </section>
+                 <% } else { %>
+                    <section class="profile-listings section-padding-sm">
+                        <h2>Offerings from <%= sellerProfile.business_name %></h2>
+                        <p class="text-center text-muted" style="margin-top: 20px;">This seller has not listed any products or services yet.</p>
+                    </section>
+                 <% } %>
+
+
+                 <!-- Reviews Section -->
+                 <section class="profile-reviews section-padding-sm">
+                     <h2>Customer Reviews for <%= sellerProfile.business_name %></h2>
+                       <div style="border-top: 1px solid var(--border-color); padding-top: 25px;">
+                        <% if (locals.sellerReviews && sellerReviews.length > 0) { %>
+                            <% sellerReviews.forEach(review => { %>
+                               <div class="testimonial-card" style="border-left-color: var(--secondary-color); margin-bottom: 20px;">
+                                    <blockquote><%- review.comment.replace(/\n/g, '<br>') %></blockquote>
+                                    <cite>- <%= review.customer_name %>
+                                        <% if (typeof review.rating === 'number') { %>
+                                            <span style="color: #ffc107; margin-left: 5px;">
+                                                <% for(let i = 0; i < 5; i++) { %>
+                                                    <i class="fa-<%= i < review.rating ? 'solid' : 'regular' %> fa-star"></i>
+                                                <% } %>
+                                            </span>
+                                        <% } %>
+                                    </cite>
+                               </div>
+                            <% }); %>
+                        <% } else { %>
+                           <p class="text-center text-muted" style="margin-top: 20px;">No reviews yet for this seller. Be the first to leave one after an interaction!</p>
+                        <% } %>
+                       </div>
+                 </section>
+
+            </div><!-- End Profile Container -->
+        <% } else { %>
+            <div class="text-center card" style="padding: 40px;">
+                <i class="fa-solid fa-user-slash fa-3x text-muted" style="margin-bottom: 15px;"></i>
+                <p class="lead text-muted">Seller profile not found.</p>
+                <a href="/product-listings" class="btn btn-primary" style="margin-top: 20px;">Back to Explore</a>
+            </div>
+        <% } %>
+    </div>
+</main>
+
+<!-- Contact Seller Modal (Re-using the same modal structure, can be a partial) -->
+<div id="contact-seller-modal" class="modal-overlay" style="display:none;">
+     <div class="modal-content card">
+        <button class="modal-close-btn" onclick="closeContactModal()">×</button>
+        <h3>Contact <span id="modal-contact-seller-name-placeholder">Seller</span></h3>
+        <p class="text-muted">Send your inquiry directly via MiniBiz.</p>
+        <hr style="margin: 15px 0; border-color: var(--border-color);">
+        <form id="modal-contact-form"> <!-- AJAX submission -->
+            <input type="hidden" id="modal-contact-seller-id-input" name="seller_id">
+            <!-- No product_id here for general seller contact, but could be added if modal is context-aware -->
+            <div class="form-group">
+                <label for="modal-contact-message">Your Message *</label>
+                <textarea id="modal-contact-message" name="message_body" rows="5" required placeholder="Ask about their services, general availability, etc..."></textarea>
+            </div>
+            <% if (!locals.user) { %>
+                <div class="form-group">
+                    <label for="modal-contact-email">Your Email (for reply) *</label>
+                    <input type="email" id="modal-contact-email" name="reply_email" required placeholder="Your email address">
+                </div>
+            <% } else { %>
+                 <input type="hidden" id="modal-contact-email" name="reply_email" value="<%= user.email %>">
+                 <p class="text-muted" style="font-size: 0.85em;">Your message will be sent using your registered email: <%= user.email %></p>
+            <% } %>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+        <p id="modal-contact-form-status" style="text-align: center; margin-top: 15px; display: none;"></p>
+     </div>
+ </div>
+
+<%
+// Pass a variable to footer to include page-specific JS for modals if needed
+const pageScripts = [];
+// if (locals.sellerProfile) { pageScripts.push('/js/seller-profile-modals.js'); }
+%>
+<%- include('partials/footer', { pageScripts: pageScripts }) %>

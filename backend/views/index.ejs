@@ -1,0 +1,89 @@
+<%- include('partials/header', { title: 'MiniBiz | Home - Your Door to Small Scale Business' }) %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/images/discover.jpg');">
+        <div class="hero-content">
+            <h1>Discover Amazing Local Talent</h1>
+            <p class="lead">MiniBiz connects you with passionate local entrepreneurs offering unique products and services right in your community.</p>
+            <a href="/product-listings" class="btn btn-accent">Explore Local Talent</a>
+        </div>
+    </section>
+
+    <!-- Featured Categories Section -->
+    <section class="featured-categories section-padding">
+        <div class="container">
+            <h2 class="text-center">Featured Categories</h2>
+            <div class="category-grid">
+                <% if (locals.featuredCategories && featuredCategories.length > 0) { %>
+                    <% featuredCategories.forEach(category => { %>
+                        <div class="category-card card">
+                            <img src="<%= category.image %>" alt="<%= category.name %> Icon" class="category-icon">
+                            <h3><%= category.name %></h3>
+                            <p><%= category.description %></p>
+                            <a href="/product-listings?category=<%= category.query %>" class="btn btn-secondary btn-sm" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 15px;">View <%= category.name.split(' ')[0] %></a>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p class="text-center text-muted">No featured categories available at the moment.</p>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials section-padding" style="background-color: var(--background-color);">
+        <div class="container">
+            <h2 class="text-center">What Our Community Says</h2>
+            <div class="testimonial-card">
+                <blockquote>"I found the most amazing custom cake maker through MiniBiz! It was delicious and beautifully made. Made the party extra special!"</blockquote>
+                <cite>- Sarah K.</cite>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>"Finally, a platform to discover local artists easily. I commissioned a fantastic portrait and couldn't be happier with the entire process."</blockquote>
+                <cite>- Mark T.</cite>
+            </div>
+             <div class="testimonial-card">
+                <blockquote>"Needed a dress altered quickly for an event and found a wonderful local tailor here. Great service, fair price, and saved my outfit!"</blockquote>
+                <cite>- Emily R.</cite>
+            </div>
+             <div class="testimonial-card">
+                <blockquote>"As a seller, MiniBiz helped me reach customers I wouldn't have found otherwise. The dashboard is easy to use!"</blockquote>
+                <cite>- David L. (Home Baker)</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+     <section class="how-it-works section-padding">
+        <div class="container text-center">
+            <h2>How MiniBiz Works</h2>
+            <p class="lead">Connecting local buyers and sellers is simple:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div class="step-card">
+                    <h4>1. Sellers Join & List</h4>
+                    <p>Local entrepreneurs create profiles and showcase their unique products or services.</p>
+                </div>
+                 <div class="step-card">
+                    <h4>2. Customers Discover</h4>
+                    <p>Browse categories, search locally, and find the perfect match for your needs.</p>
+                </div>
+                 <div class="step-card">
+                    <h4>3. Connect & Support</h4>
+                    <p>Contact sellers directly to inquire, book, or purchase, supporting your community!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (Join) -->
+    <section class="cta-join section-padding" style="background-color: var(--primary-color); color: #fff;">
+        <div class="container text-center">
+            <h2 style="color: #fff;">Ready to Grow Your Small Business?</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 30px auto;">Join the MiniBiz community today and connect with customers looking for your unique skills and products.</p>
+            <a href="/auth/join" class="btn btn-accent">Become a Seller</a>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

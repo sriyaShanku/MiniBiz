@@ -1,0 +1,65 @@
+<aside class="dashboard-nav">
+    <div class="card">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/dashboard" class="<%= (currentPath === '/dashboard' || currentPath === '/dashboard/') ? 'active' : '' %>">
+                        <i class="fa-solid fa-chart-line"></i> Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/listings" class="<%= currentPath && currentPath.startsWith('/dashboard/listings') ? 'active' : '' %>">
+                        <i class="fa-solid fa-tags"></i> My Listings
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/orders" class="<%= currentPath && currentPath.startsWith('/dashboard/orders') ? 'active' : '' %>">
+                        <i class="fa-solid fa-receipt"></i> Orders
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/bookings" class="<%= currentPath && currentPath.startsWith('/dashboard/bookings') ? 'active' : '' %>">
+                        <i class="fa-solid fa-calendar-days"></i> Bookings
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/messages" class="<%= currentPath && currentPath.startsWith('/dashboard/messages') ? 'active' : '' %>">
+                        <i class="fa-solid fa-comments"></i> Messages
+                        <% if (locals.user && locals.user.unreadMessagesCount && user.unreadMessagesCount > 0) { %>
+                            <span class="badge" style="background:var(--accent-color); color: #fff; padding: 2px 6px; font-size: 0.7rem; border-radius: 4px; margin-left: 5px;"><%= user.unreadMessagesCount %></span>
+                        <% } else if (locals.stats && stats.unreadMessages > 0 && currentPath === '/dashboard') { %>
+                            <!-- Fallback for overview page if specific count not passed for sidebar directly -->
+                            <span class="badge" style="background:var(--accent-color); color: #fff; padding: 2px 6px; font-size: 0.7rem; border-radius: 4px; margin-left: 5px;"><%= stats.unreadMessages %></span>
+                        <% } %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/profile" class="<%= currentPath === '/dashboard/profile' ? 'active' : '' %>">
+                        <i class="fa-solid fa-user-gear"></i> Profile Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/analytics" class="<%= currentPath === '/dashboard/analytics' ? 'active' : '' %>">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> Analytics
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/help" class="<%= currentPath === '/dashboard/help' ? 'active' : '' %>">
+                        <i class="fa-solid fa-circle-question"></i> Help & Support
+                    </a>
+                </li>
+                <hr style="margin: 10px 20px; border-color: var(--border-color);">
+                <li>
+                    <a href="/" target="_blank"> <!-- Open site in new tab -->
+                        <i class="fa-solid fa-store"></i> View Site
+                    </a>
+                </li>
+                <li>
+                    <a href="/auth/logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

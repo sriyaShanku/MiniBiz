@@ -1,0 +1,99 @@
+<%- include('partials/header', { title: 'MiniBiz | Frequently Asked Questions (FAQ)' }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <h1 class="text-center">Frequently Asked Questions</h1>
+        <p class="lead text-center" style="max-width: 700px; margin: 0 auto 50px auto;">Find answers to common questions below. If you can't find what you're looking for, please <a href="/contact">contact us</a>.</p>
+
+        <div class="card">
+            <section id="customer-faq" style="margin-bottom: 40px;">
+                <h2>For Customers</h2>
+                 <hr style="margin: 15px 0 25px 0; border-color: var(--border-color);">
+
+                <article class="faq-item">
+                    <h4 class="faq-question">How do I find a specific service or product?</h4>
+                    <div class="faq-answer">
+                        <p>You can use the search bar on the <a href="/product-listings">Explore page</a> or browse through the categories. You can also filter listings by location and other criteria using the filter options on the Explore page sidebar.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <h4 class="faq-question">How do I contact a seller?</h4>
+                    <div class="faq-answer">
+                        <p>On each product/service detail page and on the seller's profile page, you will find a "Contact Seller" button or link. This will typically allow you to send a message directly through the MiniBiz platform (requires login for tracking) or may display contact information provided by the seller (like an email or phone number if they chose to share it).</p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">Does MiniBiz handle payments?</h4>
+                    <div class="faq-answer">
+                        <p>Currently, MiniBiz primarily acts as a connection platform. Payment arrangements are typically made directly between the customer and the seller using methods they both agree upon (e.g., cash, bank transfer, third-party payment apps). Always discuss payment terms clearly with the seller beforehand. <br><em>(Note: When Stripe is integrated, this answer will change.)</em></p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">Is there a cost to use MiniBiz as a customer?</h4>
+                    <div class="faq-answer">
+                        <p>No, browsing listings and contacting sellers through MiniBiz is completely free for customers!</p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">What if I have an issue with a seller or purchase?</h4>
+                    <div class="faq-answer">
+                        <p>We encourage direct communication with the seller first to resolve any issues. MiniBiz acts as a platform provider and does not directly mediate disputes related to transactions. However, if you believe a seller has violated our platform guidelines, please <a href="/contact">contact us</a> with the details.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="seller-faq">
+                <h2>For Sellers</h2>
+                <hr style="margin: 15px 0 25px 0; border-color: var(--border-color);">
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">Who can become a seller on MiniBiz?</h4>
+                    <div class="faq-answer">
+                        <p>MiniBiz is designed for local small-scale businesses, home-based entrepreneurs, artists, craftspeople, freelancers, and skilled individuals offering services or products to their community. You must be eligible to conduct business according to your local regulations.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <h4 class="faq-question">How do I sign up as a seller?</h4>
+                    <div class="faq-answer">
+                        <p>Simply visit the <a href="/auth/join">Join as Seller</a> page and fill out the application form. Your account and seller profile will be created, allowing you to start listing your offerings.</p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">Is there a fee to list my services/products?</h4>
+                    <div class="faq-answer">
+                        <p>Currently, MiniBiz is free for sellers to join and list their products/services. We may introduce optional premium features or subscription tiers in the future.</p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">How do I manage my listings and receive inquiries?</h4>
+                    <div class="faq-answer">
+                        <p>Once you sign up and log in as a seller, you will have access to your <a href="/dashboard">Seller Dashboard</a>. From there, you can create and edit your listings, manage your profile information, view incoming messages from potential customers, and manage orders/bookings.</p>
+                    </div>
+                </article>
+
+                  <article class="faq-item">
+                    <h4 class="faq-question">How do I get paid?</h4>
+                    <div class="faq-answer">
+                        <p>Sellers handle payments directly with customers. You should clearly communicate your accepted payment methods in your communications or listing details. MiniBiz does not process payments between buyers and sellers at this time. <br><em>(Note: This will change with Stripe integration.)</em></p>
+                    </div>
+                </article>
+
+                 <article class="faq-item">
+                    <h4 class="faq-question">What kind of support do you offer sellers?</h4>
+                    <div class="faq-answer">
+                        <p>We provide support via email through our <a href="/contact">Contact page</a> (select "Seller Support Question"). You can also access help resources and guidelines within your Seller Dashboard once logged in.</p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

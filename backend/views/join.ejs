@@ -1,0 +1,99 @@
+<%- include('partials/header', { title: 'MiniBiz | Join as a Seller' }) %>
+
+<main class="section-padding">
+    <div class="container">
+        <div class="card login-register-container">
+            <h1 class="text-center">Become a MiniBiz Seller</h1>
+            <p class="text-center text-muted">Reach local customers, grow your small business, and be part of our community marketplace. Fill out the form below to apply!</p>
+            <hr style="margin: 25px 0; border-color: var(--border-color);">
+
+            <!-- Display Flash Messages -->
+            <% if (locals.error_msg && error_msg.length > 0) { %>
+                <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                    <%= error_msg %>
+                </div>
+            <% } %>
+             <% if (locals.errors && errors.length > 0) { %> <!-- For specific validation errors -->
+                <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                    <ul>
+                        <% errors.forEach(function(error) { %>
+                            <li><%= error.msg %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+
+            <form id="join-form" action="/auth/register" method="POST"> <!-- Points to the same register endpoint -->
+                <input type="hidden" name="account_type" value="seller"> <!-- Implicitly seller -->
+
+                <div class="form-group">
+                    <label for="business-name">Business Name / Your Name (as you want it displayed) *</label>
+                    <input type="text" id="business-name" name="business_name" required placeholder="e.g., Annie's Custom Cakes or Alex the Handyman" value="<%= typeof business_name != 'undefined' ? business_name : '' %>">
+                </div>
+                 <div class="form-group">
+                    <label for="contact-person">Contact Person Name *</label>
+                    <input type="text" id="contact-person" name="contact_person" required placeholder="Your full name" value="<%= typeof contact_person != 'undefined' ? contact_person : '' %>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com" value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional, for contact)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g., 555-123-4567" value="<%= typeof phone != 'undefined' ? phone : '' %>">
+                </div>
+                 <div class="form-group">
+                    <label for="business-category">Primary Business Category *</label>
+                    <select id="business-category" name="business_category" required>
+                        <option value="" disabled <%= typeof business_category == 'undefined' ? 'selected' : '' %>>-- Select a Category --</option>
+                        <option value="beauty" <%= typeof business_category != 'undefined' && business_category == 'beauty' ? 'selected' : '' %>>Beauty & Wellness</option>
+                        <option value="fashion" <%= typeof business_category != 'undefined' && business_category == 'fashion' ? 'selected' : '' %>>Fashion & Tailoring</option>
+                        <option value="food" <%= typeof business_category != 'undefined' && business_category == 'food' ? 'selected' : '' %>>Food & Baking</option>
+                        <option value="arts" <%= typeof business_category != 'undefined' && business_category == 'arts' ? 'selected' : '' %>>Arts & Crafts</option>
+                        <option value="home" <%= typeof business_category != 'undefined' && business_category == 'home' ? 'selected' : '' %>>Home & Repair</option>
+                         <option value="education" <%= typeof business_category != 'undefined' && business_category == 'education' ? 'selected' : '' %>>Education & Tutoring</option>
+                          <option value="pets" <%= typeof business_category != 'undefined' && business_category == 'pets' ? 'selected' : '' %>>Pet Services</option>
+                          <option value="other" <%= typeof business_category != 'undefined' && business_category == 'other' ? 'selected' : '' %>>Other Services</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Brief Description of Your Business/Services *</label>
+                    <textarea id="description" name="description" rows="4" required placeholder="Tell customers what makes your offering special! (Max 300 characters recommended for profile preview)"><%= typeof description != 'undefined' ? description : '' %></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="location-area">General Service Area / Location *</label>
+                    <input type="text" id="location-area" name="location_area" placeholder="e.g., Springfield Downtown, North County, Ship anywhere" required value="<%= typeof location_area != 'undefined' ? location_area : '' %>">
+                    <small class="text-muted">Helps customers find local sellers. Be specific but avoid exact home address unless it's a public storefront.</small>
+                </div>
+                <div class="form-group">
+                    <label for="website-social">Website or Social Media Link (Optional)</label>
+                    <input type="url" id="website-social" name="website_social" placeholder="https://yourwebsite.com or https://instagram.com/yourbiz" value="<%= typeof website_social != 'undefined' ? website_social : '' %>">
+                </div>
+
+                <!-- Password fields for immediate account creation -->
+                <div class="form-group">
+                    <label for="join-password">Create Password *</label>
+                    <input type="password" id="join-password" name="password" required placeholder="Minimum 8 characters">
+                </div>
+                <div class="form-group">
+                    <label for="join-confirm-password">Confirm Password *</label>
+                    <input type="password" id="join-confirm-password" name="confirm_password" required placeholder="Re-enter your password">
+                </div>
+
+
+                 <div class="form-check">
+                     <input type="checkbox" id="terms-agree" name="terms_agree" required>
+                     <label for="terms-agree">I agree to the MiniBiz <a href="/terms" target="_blank">Terms of Service</a> and <a href="/seller-guidelines" target="_blank">Seller Guidelines</a>.*</label> <!-- Link to actual terms -->
+                 </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Submit Application</button>
+
+                <p style="font-size: 0.9rem; text-align: center; margin-top: 20px;" class="text-muted">
+                    Your account will be created, and your seller profile will be active.
+                </p>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

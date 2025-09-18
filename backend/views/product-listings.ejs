@@ -1,0 +1,149 @@
+<%- include('partials/header', {
+    title: 'MiniBiz | Explore Local Products & Services',
+    description: 'Browse and filter local products and services on MiniBiz. Find bakers, artists, tailors, and more near you.'
+}) %>
+
+<main class="section-padding">
+    <div class="container">
+        <h1 class="text-center">Explore Local Listings</h1>
+        <p class="lead text-center" style="max-width: 700px; margin: 0 auto 50px auto;">Find unique products and skilled services offered by entrepreneurs in your community.</p>
+
+        <!-- Display Flash Messages if any -->
+        <%- include('partials/flash-messages') %>
+
+        <div class="product-page-layout">
+            <!-- Filters Sidebar -->
+            <aside class="filters">
+                <div class="card">
+                    <h3>Filter & Sort</h3>
+                    <form id="filter-form" action="/product-listings" method="GET">
+                         <div class="filter-group">
+                            <label class="group-title" for="search-term">Search Listings</label>
+                            <input type="text" id="search-term" name="search" placeholder="e.g., 'cake', 'logo', 'repair'" value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="group-title" for="category-filter">Category</label>
+                            <select id="category-filter" name="category">
+                                <option value="all" <%= (typeof selectedCategory === 'undefined' || selectedCategory === 'all' || selectedCategory === '') ? 'selected' : '' %>>All Categories</option>
+                                 <option value="beauty" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'beauty') ? 'selected' : '' %>>Beauty & Wellness</option>
+                                 <option value="fashion" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'fashion') ? 'selected' : '' %>>Fashion & Tailoring</option>
+                                 <option value="food" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'food') ? 'selected' : '' %>>Food & Baking</option>
+                                 <option value="arts" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'arts') ? 'selected' : '' %>>Arts & Crafts</option>
+                                 <option value="home" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'home') ? 'selected' : '' %>>Home & Repair</option>
+                                 <option value="education" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'education') ? 'selected' : '' %>>Education & Tutoring</option>
+                                 <option value="pets" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'pets') ? 'selected' : '' %>>Pet Services</option>
+                                 <option value="other" <%= (typeof selectedCategory !== 'undefined' && selectedCategory === 'other') ? 'selected' : '' %>>Other Services</option>
+                            </select>
+                        </div>
+                         <div class="filter-group">
+                            <label class="group-title" for="location-filter">Location</label>
+                            <input type="text" id="location-filter" name="location" placeholder="Enter Town or Postcode" value="<%= typeof locationTerm !== 'undefined' ? locationTerm : '' %>">
+                        </div>
+                         <div class="filter-group">
+                             <label class="group-title">Price Range</label>
+                             <!-- For checkboxes, you'd need to pass an array or object of selected price_ranges from the controller -->
+                             <div class="form-check"><input type="checkbox" id="price1" name="price_range" value="low" <%= (locals.selectedPriceRanges && selectedPriceRanges.includes('low')) ? 'checked' : '' %>> <label for="price1">Under ₹1000</label></div>
+                             <div class="form-check"><input type="checkbox" id="price2" name="price_range" value="mid" <%= (locals.selectedPriceRanges && selectedPriceRanges.includes('mid')) ? 'checked' : '' %>> <label for="price2">₹1000 - ₹10000</label></div>
+                             <div class="form-check"><input type="checkbox" id="price3" name="price_range" value="high" <%= (locals.selectedPriceRanges && selectedPriceRanges.includes('high')) ? 'checked' : '' %>> <label for="price3">Above ₹10000</label></div>
+                             <div class="form-check"><input type="checkbox" id="price4" name="price_range" value="inquire" <%= (locals.selectedPriceRanges && selectedPriceRanges.includes('inquire')) ? 'checked' : '' %>> <label for="price4">Inquire for Price</label></div>
+                         </div>
+                         <div class="filter-group">
+                            <label class="group-title" for="sort-by">Sort By</label>
+                            <select id="sort-by" name="sort">
+                                <option value="relevance" <%= (locals.selectedSortBy && selectedSortBy === 'relevance') ? 'selected' : '' %>>Relevance</option>
+                                <option value="newest" <%= (locals.selectedSortBy && selectedSortBy === 'newest') ? 'selected' : '' %>>Newest First</option>
+                                <option value="price_asc" <%= (locals.selectedSortBy && selectedSortBy === 'price_asc') ? 'selected' : '' %>>Price: Low to High</option>
+                                <option value="price_desc" <%= (locals.selectedSortBy && selectedSortBy === 'price_desc') ? 'selected' : '' %>>Price: High to Low</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Apply Filters</button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <section class="product-grid-area">
+                <div class="product-grid-header">
+                    <h2>Showing <span id="results-count"><%= products ? products.length : 0 %></span>
+                        <% if (locals.totalResultsCount && totalResultsCount > (products ? products.length : 0)) {%>
+                            of <%= totalResultsCount %>
+                        <% } %>
+                    Listings </h2>
+                </div>
+
+                <div class="product-grid">
+                    <% if (locals.products && products.length > 0) { %>
+                        <% products.forEach(product => { %>
+                            <article class="product-card card" data-category="<%= product.category ? product.category.toLowerCase() : 'other' %>">
+                                <a href="/product-detail/<%= product.id %>">
+                                    <img src="<%= product.image_url || '/images/default-product.png' %>" alt="<%= product.name %>" style="height:200px; object-fit:cover; border-bottom: 1px solid var(--border-color);">
+                                </a>
+                                <div class="product-card-content">
+                                    <h3><a href="/product-detail/<%= product.id %>"><%= product.name %></a></h3>
+                                    <div class="seller-info">By: <a href="/seller-profile/<%= product.seller_user_id %>"><%= product.seller_display_name %></a></div>
+                                    <p class="description">
+                                        <%# Truncate description nicely %>
+                                        <% if (product.description) { %>
+                                            <%= product.description.length > 100 ? product.description.substring(0, 97) + '...' : product.description %>
+                                        <% } else { %>
+                                            No description available.
+                                        <% } %>
+                                    </p>
+                                    <div class="price">
+                                        <% if (typeof product.price === 'number' && product.price > 0) { %>
+                                            <%= product.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }) %>
+                                            <% if (product.price_unit) { %> / <%= product.price_unit %><% } %>
+                                        <% } else if (String(product.price).toLowerCase().includes('from')) { %>
+                                            <%= product.price %>
+                                        <% } else if (String(product.price).toLowerCase().includes('inquire')) { %>
+                                            Inquire for Price
+                                        <% } else if (product.price == 0 && !product.is_service) { %>
+                                            Free
+                                        <% } else if (product.is_service && !product.price) { %>
+                                            Inquire for Service Rates
+                                        <% } else { %>
+                                            Price not listed
+                                        <% } %>
+                                    </div>
+                                    <a href="/product-detail/<%= product.id %>" class="btn btn-secondary"><%= product.is_service ? 'View Service' : 'View Details' %></a>
+                                </div>
+                            </article>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="text-center text-muted" style="grid-column: 1 / -1; padding: 40px 0;">
+                            <i class="fa-solid fa-store-slash fa-3x" style="margin-bottom: 15px; color: var(--text-muted);"></i>
+                            <p class="lead">No products or services found matching your criteria.</p>
+                            <p>Try adjusting your filters or <a href="/product-listings">view all listings</a>.</p>
+                        </div>
+                    <% } %>
+                </div><!-- End Product Grid -->
+
+                <!-- Pagination -->
+                <% if (locals.totalPages && totalPages > 1) { %>
+                    <nav class="pagination" aria-label="Page navigation" style="margin-top: 40px;">
+                        <% const prevPage = Math.max(1, currentPage - 1); %>
+                        <% const nextPage = Math.min(totalPages, currentPage + 1); %>
+                        <a href="?page=<%= prevPage %><%- locals.queryString || '' %>" class="btn btn-secondary <%= currentPage === 1 ? 'disabled' : '' %>" <%= currentPage === 1 ? 'aria-disabled="true" tabindex="-1"' : '' %>>« Prev</a>
+
+                        <%# Simple Page Number Links (can be made more complex with ...) %>
+                        <% for (let i = 1; i <= totalPages; i++) { %>
+                            <% if (i === currentPage) { %>
+                                <span class="btn btn-primary disabled" aria-current="page" style="cursor:default;"><%= i %></span>
+                            <% } else if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1) || (totalPages <= 5)) { %>
+                                <a href="?page=<%= i %><%- locals.queryString || '' %>" class="btn btn-secondary"><%= i %></a>
+                            <% } else if ( (i === currentPage - 2 && currentPage > 3) || (i === currentPage + 2 && currentPage < totalPages - 2) ) { %>
+                                <span class="btn btn-secondary disabled" style="cursor:default;">...</span>
+                            <% } %>
+                        <% } %>
+
+                        <a href="?page=<%= nextPage %><%- locals.queryString || '' %>" class="btn btn-secondary <%= currentPage === totalPages ? 'disabled' : '' %>" <%= currentPage === totalPages ? 'aria-disabled="true" tabindex="-1"' : '' %>>Next »</a>
+                    </nav>
+                <% } %>
+            </section>
+        </div> <!-- End Product Page Layout -->
+    </div>
+</main>
+
+<%- include('partials/footer') %>

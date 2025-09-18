@@ -1,0 +1,63 @@
+<%- include('partials/header', { title: 'MiniBiz | Contact Us' }) %>
+
+<main class="section-padding">
+    <div class="container">
+         <div class="card login-register-container" style="max-width: 650px;">
+            <h1 class="text-center">Get In Touch</h1>
+            <p class="text-center text-muted">We'd love to hear from you! Whether you have questions, feedback, or need support, please reach out.</p>
+            <hr style="margin: 25px 0; border-color: var(--border-color);">
+
+            <!-- Display Flash Messages -->
+            <% if (locals.error_msg && error_msg.length > 0) { %>
+                <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= error_msg %></div>
+            <% } %>
+            <% if (locals.success_msg && success_msg.length > 0) { %>
+                <div class="alert alert-success" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><%= success_msg %></div>
+            <% } %>
+
+
+            <form id="contact-form" action="/contact" method="POST"> <!-- Action points to backend -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                     <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Full Name" value="<%= locals.user ? user.full_name : '' %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com" value="<%= locals.user ? user.email : '' %>">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                         <option value="">-- Please select a subject --</option>
+                         <option value="General Inquiry">General Inquiry</option>
+                         <option value="Seller Support">Seller Support Question</option>
+                         <option value="Buyer Support">Buyer Support Question</option>
+                         <option value="Feedback">Website Feedback</option>
+                         <option value="Partnership">Partnership Inquiry</option>
+                         <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Please type your message here..."></textarea>
+                </div>
+
+                <div class="text-center">
+                     <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Send Message</button>
+                </div>
+            </form>
+
+             <div class="contact-info text-center" style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
+                <h3>Other Ways to Connect</h3>
+                <p class="text-muted">You can also find answers in our <a href="/faq">FAQ section</a> or reach us directly:</p>
+                <p style="margin-top: 15px;">
+                    <strong >Email:</strong> <a href="mailto:support@minibiz.example.com">support@minibiz.example.com</a>
+                </p>
+            </div>
+         </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
