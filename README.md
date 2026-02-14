@@ -54,4 +54,4 @@ Experience the live project here
 │   └── 📄 faq.html  
 │  
 ├── 📄 .gitignore  
-└── 📄 README.md  /.. thiis iz my changed code in github..
+└── 📄 README.md  /.. 
